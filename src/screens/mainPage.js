@@ -1,14 +1,14 @@
 import '../App.css';
-import api from '../api/api';
 import { useEffect, useState } from 'react';
 import CardPokemon from '../components/cardPokemon';
-import { GridWrapper, MainHF, GridContainer, Mainfooter, Root, DefaultLabel, MenuDiv} from './mainPage.styles'
-import FiltersMenu from '../components/fillters';
+import { GridWrapper, MainHeader, GridContainer, Mainfooter, Root} from './mainPage.styles'
+import api from '../api/api';
+import BackToTop from '../components/btnBackTop';
 
 function MainPage() {
-  const [pokemons, setPokemons]=useState(null)
+  const [pokemons, setPokemons]=useState(null);
   const allPokemons =()=>{
-    api.get("pokemon?limit=12").then(res=>{
+    api.get("pokemon?limit=151").then(res=>{
       setPokemons(res.data.results);
     })
   }
@@ -18,27 +18,23 @@ function MainPage() {
       allPokemons();
     }
   },[])
-
   return (
     <Root>      
-      <MainHF>
+      <MainHeader>
           <img src={require(`../logoPokedex.png`)} ></img>
-      </MainHF>
-      <div>
-        <FiltersMenu>          
-        </FiltersMenu>
-        <GridWrapper>
-          {pokemons?.map(item=>{
-            return (
-              <GridContainer key={item.name}>
-                <CardPokemon name={item.name}/>
-              </GridContainer>
-            )
-          })}
-        </GridWrapper>
-      </div>  
+      </MainHeader>
+      <GridWrapper>
+        {pokemons?.map(item=>{
+          return (
+            <GridContainer key={item.name}>
+              <CardPokemon name={item.name}/>
+            </GridContainer>
+          )
+        })}
+      </GridWrapper>
       <Mainfooter>
-      </Mainfooter>    
+      </Mainfooter>
+      <BackToTop></BackToTop>  
     </Root>
 
   );

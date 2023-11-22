@@ -5,7 +5,7 @@ export const FiltersMenu =()=>{
         
         <MenuDiv>
           <DefaultLabel>
-              Ordenar por:
+              Filtrar por:
           </DefaultLabel>
           <select>
             <option value="someOption">Some option</option>

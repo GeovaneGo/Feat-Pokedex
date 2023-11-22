@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Root = styled.div`
-    height: 100%;
+    min-height: 100dvh;
 `
 
 export const DefaultLabel = styled.strong`    
@@ -11,7 +11,7 @@ export const DefaultLabel = styled.strong`
     height: 24px;
 `; 
 
-export const MainHF = styled.div`
+export const MainHeader = styled.header`
     background-color: #DC143C;
     height: 80px;   
     display: flex;
@@ -36,11 +36,13 @@ export const MainHF = styled.div`
     }
 `;
 
-export const Mainfooter = styled.div`
+export const Mainfooter = styled.footer`
     background-color: #DC143C;
     height: 50px;     
     bottom:0;
     width:100%;
+    clear: both;
+    position: relative;
 `;
 
 
@@ -65,7 +67,7 @@ export const GridWrapper = styled.div`
     }
 
     @media (min-width: 1520px){      
-        padding: 10px 250px;     
+        padding: 50px 250px;     
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 `;

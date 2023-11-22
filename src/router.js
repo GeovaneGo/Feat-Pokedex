@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import MainPage from "./screens/mainPage";
+import PokeInfoPage from "./screens/pokeInfo";
 
 export const Router =()=>{
     return(
@@ -8,6 +9,11 @@ export const Router =()=>{
                 <Route
                     path="/"
                     element={<MainPage/>}
+                    >                    
+                </Route>
+                <Route
+                    path="/pokemon/:pokeId"
+                    Component={PokeInfoPage}
                     >                    
                 </Route>
             </Routes>

@@ -6,11 +6,13 @@ export const CardContainer = styled.div`
     margin: 8px;
     width: 90%;
     min-width: 220px;
-    cursor: pointer;
     box-shadow: 0px 0px 11px #e6e6e6;
     border-radius: 20px ;
     position: relative;
+    cursor: default;
     &:hover {
+        
+        box-shadow: 0px 0px 12px #94e6fa;
         animation: tilt 200ms;
         @keyframes tilt {
             0% {
@@ -34,11 +36,22 @@ export const PokeName = styled.strong`
     height: 24px;
 `;
 
+export const PoketypesContainer = styled.a`
+    display: flex;
+    border-radius: 10px;
+    width: 180px;
+    height: 180px;
+    justify-self: center;
+    background: url(${props=>props.bgimage}) center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+`;
+
 export const DefaultImg = styled.img`
     width: 100%;    
-    max-width: 175px;
-    max-height: 175px;
-    opacity: 0.85;
+    max-width: 160px;
+    max-height: 160px;
     margin: auto;
 `;
 
@@ -51,39 +64,6 @@ export const CardTypeBg = styled.div`
     bottom:0;
     width:100%;
     border-radius: 10px;
-`;
-
-export const PoketypesContainer = styled.div`
-    display: flex;
-    border-radius: 10px;
-    width: 180px;
-    height: 180px;
-    justify-self: center;
-    background-color: #d2dcdd69;
-`;
-
-export const TypesGrid = styled.div`
-    display: flex;
-    justify-content: center;
-    min-width: 210px;
-`;
-
-export const PokeIconsBg = styled.div`
-    font-size: 14px;
-    border-radius: 10px;
-    width: 90px;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    margin: 4px;
-    background-color: ${props=>props.bgColor};
-    height: 24px;
-`;
-
-export const PokeIcons = styled.img`
-    width: 15px;
-    height: 15px;
-    margin: 4px;
 `;
 
 export const PokeNumber = styled.strong`
