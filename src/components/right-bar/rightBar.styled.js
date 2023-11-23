@@ -19,7 +19,8 @@ export const DivRightBar = styled.div`
             transform: translatex(0px);
         }
     }
-`   
+`;
+
 export const RightBarHeader = styled.div`
     background-color: #d6d3d49e;
     height: 60px;   

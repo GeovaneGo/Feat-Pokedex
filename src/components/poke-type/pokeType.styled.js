@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-
 export const PokeIconsBg = styled.div`
     font-size: 14px;
     border-radius: 10px;
     width: ${props=>props.iconbgwidth}; ;
-    padding: 4px;
+    padding: 10px;
     display: flex;
     align-items: center;
     margin: 4px;
@@ -20,7 +19,14 @@ export const TypesGrid = styled.div`
     margin-top: 25px;
 `;
 
+export const TypeLabel = styled.label`
+    text-align: center;
+    margin: 4px;
+    font-size: ${props=>props.fontSize};;
+`;
+
 export const PokeIcons = styled.img`
     width: ${props=>props.iconwidth}; //15
     margin: 4px;
+    margin-left:6px
 `;

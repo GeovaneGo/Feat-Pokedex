@@ -1,12 +1,12 @@
-import Capitalizer from "./capitalizer"
-import { PokeIcons, PokeIconsBg, TypesGrid } from "./pokeType.styled"
+import Capitalizer from "../capitalizer/capitalizer"
+import { PokeIcons, PokeIconsBg, TypeLabel, TypesGrid } from "./pokeType.styled";
 
 export const PokeType =({pokeInfo})=>{
-    console.log(pokeInfo)
     const pokeType = pokeInfo.pokeType;
     const iconWidth = pokeInfo.iconWidth;
     const pokeIconHeigth = pokeInfo.pokeIconHeigth;
-    const pokeIconWidth = pokeInfo.pokeIconWidth || "90px" 
+    const pokeIconWidth = pokeInfo.pokeIconWidth || "90px";
+    const fontZise = pokeInfo.fontSize || "15px"; 
     const typeColor = {
         normal: "gray",
         fire:"#f9a555d9",
@@ -27,16 +27,16 @@ export const PokeType =({pokeInfo})=>{
         dark:"#595761d9",
         fairy: "#ed93e4d9"
     };
-
     return (
         <TypesGrid>
             {pokeType?.map(pokeMon=>{
                 return (
-                    <div key={pokeMon.type}>
-                        <PokeIconsBg  iconbgheight={pokeIconHeigth} iconbgwidth={pokeIconWidth} bgcolor={typeColor[pokeMon.type.name]}>
-                            
-                            <PokeIcons iconwidth={iconWidth} src={require(`../typeIcons/${pokeMon.type.name}.svg`)}></PokeIcons>
-                            <Capitalizer str={pokeMon.type.name}/>
+                    <div>
+                        <PokeIconsBg  iconbgheight={pokeIconHeigth} iconbgwidth={pokeIconWidth} bgcolor={typeColor[pokeMon.type.name]}>                            
+                            <PokeIcons iconwidth={iconWidth} src={require(`../../typeIcons/${pokeMon.type.name}.svg`)}></PokeIcons>
+                            <TypeLabel fontSize={fontZise}>
+                                <Capitalizer str={pokeMon.type.name}/>
+                            </TypeLabel>
                         </PokeIconsBg>
                     </div>
                 )

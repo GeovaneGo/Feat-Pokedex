@@ -45,10 +45,23 @@ export const Mainfooter = styled.footer`
     position: relative;
 `;
 
+export const ImgBanner = styled.div`
+    display: grid;   
+    height: 60px;
+    width: auto;
+    padding: 4px;
+    background: url(${props=>props.bgimage}) center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    transform: rotate(${props=>props.rotate}deg);
+    margin-top: ${props=>props.margintop};
+`
 
 export const GridWrapper = styled.div`
     display: grid;
     padding: 50px 80px;
+    min-height: 73.5dvh;
     grid-template-columns: 1fr;
 
     @media (min-width: 600px){        

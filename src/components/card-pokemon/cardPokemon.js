@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import api from "../api/api";
-import Capitalizer from "./capitalizer";
+import api from "../../api/api";
+import Capitalizer from "../capitalizer/capitalizer";
 import {  DefaultImg, CardContainer, PokeIcons, PokeIconsBg, TypesGrid, PoketypesContainer, PokeNumber, CardTypeBg, PokeName } from "./cardPokemon.styles";
-import LeftZero from "./leftZero";
-import pokeballBg from "../pokeball.png";
-import PokeType from "./pokeType";
+import LeftZero from "../left-zero/leftZero";
+import pokeballBg from "../../pokeball.png";
+import PokeType from "../poke-type/pokeType";
 
-const CardPokemon =({name, sprites})=>{
-    const [pokeImg, setPokeImage]=useState("");
+const CardPokemon =({name})=>{
+    const [pokeImg, setPokeImage]=useState('');
     const [pokeType, setPokeType]=useState([]);    
-    const [pokeNumber, setPokeNumber]=useState("");
+    const [pokeNumber, setPokeNumber]=useState('');
     const pokeInfo ={
         pokeType: pokeType,
         iconWidth: '15px',
@@ -18,8 +18,7 @@ const CardPokemon =({name, sprites})=>{
 
     useEffect(()=>{
         api.get(`pokemon/${name}`).then(res=>{
-            console.log(res)
-            setPokeImage(res.data.sprites.other.dream_world.front_default);
+            setPokeImage(res.data.sprites.other['official-artwork']['front_default'] || res.data.sprites.other.dream_world.front_default);
             setPokeType(res.data.types);
             setPokeNumber(res.data.id);
           })          

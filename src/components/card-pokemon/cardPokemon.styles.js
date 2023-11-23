@@ -2,9 +2,11 @@ import styled from "styled-components"
 
 export const CardContainer = styled.div`
     display: grid;
+    background-color: #e6e6e6;
     justify-content: center;
     margin: 8px;
     width: 90%;
+    height: 335px;
     min-width: 220px;
     box-shadow: 0px 0px 11px #e6e6e6;
     border-radius: 20px ;
@@ -28,7 +30,6 @@ export const CardContainer = styled.div`
     }
 `;
 
-
 export const PokeName = styled.strong`
     color: #368389;
     font-size: 20px;
@@ -50,8 +51,8 @@ export const PoketypesContainer = styled.a`
 
 export const DefaultImg = styled.img`
     width: 100%;    
-    max-width: 160px;
-    max-height: 160px;
+    max-width: 200px;
+    max-height: 200px;
     margin: auto;
 `;
 

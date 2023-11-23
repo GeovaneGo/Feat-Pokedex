@@ -4,7 +4,7 @@ export const BtnBackToTop = styled.button`
     color: white;
     padding: 10px;
     width: 18dvh;
-    height: 5dvh;
+    height: 45px;
     border-radius: 10px;
     position: fixed;
     right: 15px;
@@ -17,7 +17,7 @@ export const BtnBackToTop = styled.button`
     &:hover {    
         opacity: 0.8; 
     }
-`
+`;
 
 export const DefaultLabel = styled.strong`    
     color: #ffffff;

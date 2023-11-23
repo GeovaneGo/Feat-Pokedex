@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { BtnBackToTop, DefaultIcon, DefaultLabel } from "./btnBackTop.styled"
-import pokeball from "../pokeball.png"
+import { useState } from "react";
+import { BtnBackToTop, DefaultIcon, DefaultLabel } from "./btnBackTop.styled";
+import pokeball from "../../pokeball.png";
 
-export const BackToTop =(prop)=> {
+export const BackToTop =()=> {
     const [displayInfo, setdisplayInfo]=useState("none");
     function FnBackToTop(){
         window.scrollTo({top: 0, behavior: 'smooth'});
@@ -20,7 +20,7 @@ export const BackToTop =(prop)=> {
         <BtnBackToTop id="btnBTT" display={displayInfo} onClick={FnBackToTop}>
             <DefaultIcon src={pokeball}></DefaultIcon>
             <DefaultLabel>                
-                Voltar ao Topo!
+                Subir!
             </DefaultLabel>                
         </BtnBackToTop>
     )

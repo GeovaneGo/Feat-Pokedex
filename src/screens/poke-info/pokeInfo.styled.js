@@ -22,23 +22,27 @@ export const PokeLogo = styled.img`
     }
 `
 
-export const PokeInfo = styled.div`    
+export const PokeInfo = styled.div`
+    display: grid;   
     height: 80px;
     width: auto;
-    padding: 8px;
+    padding: 4px;
     background: url(${props=>props.bgimage}) center;
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
+    transform: rotate(${props=>props.rotate}deg);
+    margin-top: ${props=>props.margintop};
 `
 export const DefaultLabel = styled.strong`
     color: ${props=>props.textcolor};    
     margin: ${props=>props.textmargin};    
     font-family: 'Poppins', sans-serif;
-    font-size: 45px;
+    font-size: 38px;
     justify-self: center;
     height: 24px;
-`; 
+    cursor: default;
+`;
 
 export const PokeContainer = styled.div`
     display: grid;
@@ -101,29 +105,24 @@ export const Mainfooter = styled.footer`
 
 export const DefaultImg = styled.img`
     width: 100%;    
-    max-width: 250px;
-    max-height: 250px;
+    width: 300px;
     margin: auto;
-    transition: ease all 1s;
+    transition: ease all 0.5s;
 
     @media (min-width: 600px){
-        max-width: 380px;
-        max-height: 380px;  
+        width: 480px;
     }
 
     @media (min-width: 900px){   
-        max-width: 200px;
-        max-height: 200px; 
+        width: 300px;
     }
 
     @media (min-width: 1270px){  
-        max-width: 280px;
-        max-height:280px;   
+        width: 380px; 
     }
 
     @media (min-width: 1520px){
-        max-width: 380px;
-        max-height: 380px;  
+        width: 480px;
     }
 `;
 
@@ -137,7 +136,7 @@ export const PokeInfoContainer = styled.div`
     background: url(${props=>props.bgimage}) center;
     background-size: contain;
     background-repeat: no-repeat;
-    transition: ease all 1s;
+    transition: ease all 0.5s;
 
     @media (min-width: 600px){
         width: 500px;
@@ -168,7 +167,8 @@ export const PokeStatusContainer = styled.div`
     height: 320px;
     justify-self: center;
     background-color: #72e1fc;    
-    transition: ease all 1s;
+    transition: ease all 0.5s;
+    text-align: cent;
     
     @media (min-width: 600px){
         width: 500px;
@@ -232,7 +232,7 @@ export const StatusBar = styled.div`
     border-radius: 5px;
     height: 12px;
     margin-bottom: 5px;  
-    transition: ease all 1s;
+    transition: ease all 0.5s;
 
     @media (min-width: 600px){     
         border-radius: 10px;
@@ -265,7 +265,7 @@ export const StatusProgressBar = styled.div`
     border-radius: 5px;
     height: 12px;
     margin-bottom: 5px;  
-    transition: ease all 1s;
+    transition: ease all 0.5s;
 
     @media (min-width: 600px){   
         border-radius: 10px;
@@ -294,11 +294,12 @@ export const StatusProgressBar = styled.div`
 
 export const StatusName = styled.strong`
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     justify-self: center;
+    cursor: default;
 
     @media (min-width: 600px){          
-        font-size: 20;
+        font-size: 25px;
     }
 
     @media (min-width: 900px){           
@@ -306,11 +307,11 @@ export const StatusName = styled.strong`
     }
 
     @media (min-width: 1270px){        
-        font-size: 18px;
+        font-size: 22px;
     }
 
     @media (min-width: 1520px){      
-        font-size: 22px;
+        font-size: 26px;
     }
 `; 
 
@@ -318,11 +319,12 @@ export const StatusLabels = styled.strong`
     color: ${props=>props.textcolor};    
     margin: ${props=>props.textmargin};    
     font-family: 'Poppins', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     justify-self: center;
+    cursor: default;
 
     @media (min-width: 600px){          
-        font-size: 30px;
+        font-size: 35px;
     }
 
     @media (min-width: 900px){           
@@ -337,4 +339,144 @@ export const StatusLabels = styled.strong`
         font-size: 35px;
     }
 `; 
+
+export const EvoContainer = styled.div`
+    display: grid;
+
+    @media (min-width: 600px){       
+        padding: 0 50px;       
+    }
+
+    @media (min-width: 900px){        
+        padding: 0 100px;
+    }
+
+    @media (min-width: 1270px){        
+        padding: 0 200px;
+    }
+
+    @media (min-width: 1520px){      
+        padding: 0 250px;     
+    }
+`;
+
+export const DivNext = styled.div` 
+    padding: 20px 0 0 10px;   
+
+    @media (min-width: 600px){    
+        padding: 20px 0 0 70px;
+    }
+
+    @media (min-width: 900px){    
+        padding: 20px 0 0 40px;
+    }
+
+    @media (min-width: 1270px){    
+        padding: 20px 0 0 60px;
+    }
+
+    @media (min-width: 1520px){  
+        padding: 20px 0 0 50px;  
+    }
+`;
+
+export const DivPrev = styled.div`
+    padding: 20px 10px 0 0;     
+
+    @media (min-width: 600px){       
+        padding: 20px 70px 0 0;     
+    }
+
+    @media (min-width: 900px){        
+        padding: 20px 40px 0 0;   
+    }
+
+    @media (min-width: 1270px){        
+        padding: 20px 60px 0 0;   
+    }
+
+    @media (min-width: 1520px){      
+        padding: 20px 50px 0 0;       
+    }
+
+`; 
+
+
+export const NextPrev = styled.a`
+    float: ${props=>props.setfloat};   
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 14px;
+    font-weight:bold; 
+    border-radius: 10PX;
+    padding: 2px;
+    transition: color .2s,background-color .2s;
+    width: 160px;
+    height: 25px;
+    color: black;
+    cursor: Pointer;
+      
+    &:link{
+        text-decoration: none;
+    }
+
+    &:hover{
+       background-color: #e8edee;
+    }
+`; 
+
+export const EvoInfos = styled.div`
+    display: grid;
+    width:  84%;
+    justify-items: center;
+    gap: 20px;
+    min-height: 400px;
+    background-color: #5e4949;
+    border-radius: 10px;
+    margin-bottom: 50px;    
+    grid-template-columns: 1fr;
+    transition: ease all 0.5s;
+    margin: auto;
+    padding: 20px;
+    
+    @media (min-width: 600px){
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 900px){   
+        grid-template-columns: 1fr 1f;
+    }
+
+    @media (min-width: 1270px){  
+        grid-template-columns: 1fr 1fr;  
+    }
+
+    @media (min-width: 1520px){
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+`
+
+export const PokeNav = styled.nav`  
+    
+    @media (min-width: 900px){        
+        padding: 0 130px;
+    }
+
+    @media (min-width: 1270px){        
+        padding: 0 150px;
+    }
+
+    @media (min-width: 1520px){      
+        padding: 0 220px;     
+    }
+`
+export const GridContainer = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    min-height: 350px;
+    min-width: 240px;
+    max-width: 300px;
+`;
 

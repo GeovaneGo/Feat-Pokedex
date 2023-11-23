@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import MainPage from "./screens/mainPage";
-import PokeInfoPage from "./screens/pokeInfo";
+import MainPage from "./screens/main-page/mainPage";
+import PokeInfoPage from "./screens/poke-info/pokeInfo";
 
 export const Router =()=>{
     return(
