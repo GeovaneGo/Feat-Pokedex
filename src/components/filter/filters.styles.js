@@ -25,9 +25,38 @@ export const MenuDiv = styled.div`
     }
 `;
 
-export const DefaultLabel = styled.strong`    
-    color: #6b5353;
+export const GridMenu = styled.div`   
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 600px){        
+        grid-template-columns: 1fr ;
+    }
+
+    @media (min-width: 900px){        
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1270px){        
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1520px){    
+        grid-template-columns: 1fr 1fr;
+    }
+`;
+
+export const GridItem = styled.div `
+    min-width: 200px;
+    display: flex;
+    margin: auto;
+`;
+
+export const DefaultLabel = styled.label`    
+    color: #201e1e;
     font-size: 20px;
+    font-weight:bold; 
     justify-self: center;
     height: 24px;
+    margin-right: 20px;
 `; 

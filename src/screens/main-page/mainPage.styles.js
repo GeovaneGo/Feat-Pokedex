@@ -5,7 +5,7 @@ export const Root = styled.div`
 `
 
 export const DefaultLabel = styled.strong`    
-    color: #6b5353;
+    color: #1d2839;
     font-size: 20px;
     justify-self: center;
     height: 24px;
@@ -85,6 +85,32 @@ export const GridWrapper = styled.div`
     }
 `;
 
+export const GridMenu = styled.div`   
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 600px){        
+        grid-template-columns: 1fr ;
+    }
+
+    @media (min-width: 900px){        
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1270px){        
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1520px){    
+        grid-template-columns: 1fr 1fr;
+    }
+`;
+
+export const GridItem = styled.div `
+    display: flex;
+    margin: auto;
+`;
+
 export const GridContainer = styled.div`
     display: flex;
     width: 100%;
@@ -93,4 +119,19 @@ export const GridContainer = styled.div`
     min-height: 350px;
     min-width: 240px;
     max-width: 300px;
+`;
+
+export const ShowMoreBtn = styled.button`
+    width: 26dvh;
+    height: 52px;
+    border-radius: 25px;
+    background-color: #afd8e1;
+    border: none;
+    box-shadow: 0px 0px 2px black;
+`
+
+export const DefaultIcon = styled.img`
+    width: 30px; 
+    margin-top: -7px;
+    margin-right: 10px;
 `;

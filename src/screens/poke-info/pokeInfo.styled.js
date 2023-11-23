@@ -166,7 +166,7 @@ export const PokeStatusContainer = styled.div`
     width: 320px;
     height: 320px;
     justify-self: center;
-    background-color: #72e1fc;    
+    background-color: #b0cfcb;    
     transition: ease all 0.5s;
     text-align: cent;
     
@@ -319,6 +319,7 @@ export const StatusLabels = styled.strong`
     color: ${props=>props.textcolor};    
     margin: ${props=>props.textmargin};    
     font-family: 'Poppins', sans-serif;
+    font-weight: bold;
     font-size: 20px;
     justify-self: center;
     cursor: default;
@@ -339,6 +340,38 @@ export const StatusLabels = styled.strong`
         font-size: 35px;
     }
 `; 
+
+export const EvoInfos = styled.div`
+    display: grid;
+    width:  84%;
+    justify-items: center;
+    gap: 20px;
+    min-height: 400px;
+    background-color: #b0cfcb;
+    border-radius: 10px;
+    margin-bottom: 50px;    
+    grid-template-columns: 1fr;
+    transition: ease all 0.5s;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 30px;
+    
+    @media (min-width: 600px){
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 900px){   
+        grid-template-columns: 1fr 1f;
+    }
+
+    @media (min-width: 1270px){  
+        grid-template-columns: 1fr 1fr;  
+    }
+
+    @media (min-width: 1520px){
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+`
 
 export const EvoContainer = styled.div`
     display: grid;
@@ -425,37 +458,6 @@ export const NextPrev = styled.a`
     }
 `; 
 
-export const EvoInfos = styled.div`
-    display: grid;
-    width:  84%;
-    justify-items: center;
-    gap: 20px;
-    min-height: 400px;
-    background-color: #5e4949;
-    border-radius: 10px;
-    margin-bottom: 50px;    
-    grid-template-columns: 1fr;
-    transition: ease all 0.5s;
-    margin: auto;
-    padding: 20px;
-    
-    @media (min-width: 600px){
-        grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 900px){   
-        grid-template-columns: 1fr 1f;
-    }
-
-    @media (min-width: 1270px){  
-        grid-template-columns: 1fr 1fr;  
-    }
-
-    @media (min-width: 1520px){
-        grid-template-columns: 1fr 1fr 1fr; 
-    }
-`
-
 export const PokeNav = styled.nav`  
     
     @media (min-width: 900px){        
@@ -470,6 +472,7 @@ export const PokeNav = styled.nav`
         padding: 0 220px;     
     }
 `
+
 export const GridContainer = styled.div`
     display: flex;
     width: 100%;
@@ -478,5 +481,6 @@ export const GridContainer = styled.div`
     min-height: 350px;
     min-width: 240px;
     max-width: 300px;
+    margin: auto;
 `;
 

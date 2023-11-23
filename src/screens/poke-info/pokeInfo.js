@@ -34,7 +34,8 @@ import PokeType from "../../components/poke-type/pokeType";
 import BackToTop from "../../components/buttonn-back-top/btnBackTop";
 import CardPokemon from "../../components/card-pokemon/cardPokemon";
 
-export const PokeInfoPage =()=>{
+export const PokeInfoPage =()=>{  
+
     let { pokeId } = useParams(); 
     const navigation = useNavigate();    
     const [hasPrev, setHasPrev]=useState(false);
@@ -48,7 +49,7 @@ export const PokeInfoPage =()=>{
     const [pokeStats, setPokeStats]=useState([]);    
     const [pokePrevName, setPrevName]=useState('');
     const [pokeNextName, setNextName]=useState('');
-    const [evolutions, setEvolution]=useState([]);
+    const [evolutions, setEvolution]=useState([]);    
     const getEvolutionsNames = [];
     const pokeInfo ={
         pokeType: pokeType,
@@ -58,14 +59,15 @@ export const PokeInfoPage =()=>{
         fontSize: "22px"
     }
 
+
     const getPokemon =()=>{
         api.get('pokemon/' + pokeId).then(res=>{
             console.log(res.data);
             setPokemonImg(res.data.sprites.other['official-artwork']['front_default'] || res.data.sprites.other.dream_world.front_default);
             setPokeName(res.data.name);
             setPokeNumber(res.data.id);
-            setPokeType(res.data.types)
-            setPokeStats(res.data.stats);               
+            setPokeType(res.data.types)    
+            setPokeStats(res.data.stats)        
 
             if(!prevValidade){
                 getPrevPokemon(res.data.id);
@@ -81,6 +83,7 @@ export const PokeInfoPage =()=>{
 
     function getEvoluitonChain(specieURL){
         api.get('pokemon-species/' + specieURL).then(res=>{
+            console.log(res.data)
             getEvolutions(res.data.evolution_chain.url.split("/")[6]);
         })
     }
@@ -136,7 +139,7 @@ export const PokeInfoPage =()=>{
 
     function setMaxStat(baseStat){
         return (baseStat * 100) / 255;
-    }
+    }   
 
     useEffect(()=>{
         if(!pokeNumber){
@@ -183,9 +186,9 @@ export const PokeInfoPage =()=>{
                         <DefaultImg src={pokeImage}>
                         </DefaultImg>
                     </PokeInfoContainer> 
-                    <div >                                          
+                    <div style={{textAlign:"center",marginTop:"15px"}} >                                          
                         <StatusLabels>
-                                Tipo:
+                                Type:
                         </StatusLabels>
                     </div>
                     <PokeType pokeInfo={pokeInfo}></PokeType>
@@ -207,7 +210,12 @@ export const PokeInfoPage =()=>{
                                 </div>
                             )
                         })}
-                    </PokeStatusContainer>
+                    </PokeStatusContainer>                    
+                    <div style={{textAlign:"center", marginTop:"15px"}} >                                          
+                        <StatusLabels>
+                                Weakness:
+                        </StatusLabels>
+                    </div>
                 </ResponsivDiv>
             </PokeContainer>           
             <EvoContainer>
@@ -226,7 +234,7 @@ export const PokeInfoPage =()=>{
             <Mainfooter>                
             </Mainfooter>
         </Root>       
-    )
+    );
 }
 
 export default PokeInfoPage;

@@ -4,6 +4,7 @@ import pokeball from "../../pokeball.png";
 
 export const BackToTop =()=> {
     const [displayInfo, setdisplayInfo]=useState("none");
+    
     function FnBackToTop(){
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
@@ -17,7 +18,7 @@ export const BackToTop =()=> {
     }
 
     return (
-        <BtnBackToTop id="btnBTT" display={displayInfo} onClick={FnBackToTop}>
+        <BtnBackToTop display={displayInfo} onClick={FnBackToTop}>
             <DefaultIcon src={pokeball}></DefaultIcon>
             <DefaultLabel>                
                 Subir!

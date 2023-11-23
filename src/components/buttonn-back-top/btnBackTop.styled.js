@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const BtnBackToTop = styled.button`
     color: white;
-    padding: 10px;
     width: 18dvh;
     height: 45px;
     border-radius: 10px;
@@ -29,6 +28,4 @@ export const DefaultLabel = styled.strong`
 export const DefaultIcon = styled.img`
     width: 20px; 
     margin-top: -3px;
-    transition-duration: 0.8s;
-    transition-property: transform;
 `;

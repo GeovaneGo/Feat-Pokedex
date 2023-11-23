@@ -5,7 +5,7 @@ export const PokeType =({pokeInfo})=>{
     const pokeType = pokeInfo.pokeType;
     const iconWidth = pokeInfo.iconWidth;
     const pokeIconHeigth = pokeInfo.pokeIconHeigth;
-    const pokeIconWidth = pokeInfo.pokeIconWidth || "90px";
+    const pokeIconWidth = pokeInfo.pokeIconWidth || "110px";
     const fontZise = pokeInfo.fontSize || "15px"; 
     const typeColor = {
         normal: "gray",

@@ -1,8 +1,9 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import arrow from "../../arrow.png";
 
 export const CardContainer = styled.div`
     display: grid;
-    background-color: #e6e6e6;
+    background-color: #f9f9f9;
     justify-content: center;
     margin: 8px;
     width: 90%;
