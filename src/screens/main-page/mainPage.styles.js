@@ -5,7 +5,7 @@ export const Root = styled.div`
 `
 
 export const DefaultLabel = styled.strong`    
-    color: #1d2839;
+    color: #606367;
     font-size: 20px;
     justify-self: center;
     height: 24px;

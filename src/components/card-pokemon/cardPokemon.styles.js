@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import arrow from "../../arrow.png";
 
 export const CardContainer = styled.div`
     display: grid;
@@ -47,7 +46,16 @@ export const PoketypesContainer = styled.a`
     background: url(${props=>props.bgimage}) center;
     background-size: contain;
     background-repeat: no-repeat;
-    cursor: pointer;
+    cursor: pointer;    
+    animation: ${props=>props.pokename} 1s infinite linear;
+    transition: ease all 0.5s;
+    @keyframes ${props=>props.pokename} {
+        100% {
+            transform: rotate(${props=>props.rotate});
+        }
+}
+
+
 `;
 
 export const DefaultImg = styled.img`

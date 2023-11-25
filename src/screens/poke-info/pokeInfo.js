@@ -62,7 +62,6 @@ export const PokeInfoPage =()=>{
 
     const getPokemon =()=>{
         api.get('pokemon/' + pokeId).then(res=>{
-            console.log(res.data);
             setPokemonImg(res.data.sprites.other['official-artwork']['front_default'] || res.data.sprites.other.dream_world.front_default);
             setPokeName(res.data.name);
             setPokeNumber(res.data.id);
@@ -83,21 +82,19 @@ export const PokeInfoPage =()=>{
 
     function getEvoluitonChain(specieURL){
         api.get('pokemon-species/' + specieURL).then(res=>{
-            console.log(res.data)
             getEvolutions(res.data.evolution_chain.url.split("/")[6]);
         })
     }
 
     function getEvolutions(chainId){
         api.get('evolution-chain/' + chainId).then(res=>{
-            console.log(res.data)
-            if(!getEvolutionsNames.find(getEvolutionsNames => getEvolutionsNames.name == res.data.chain.species.name)){
+            if(!getEvolutionsNames.find(getEvolutionsNames => getEvolutionsNames.name === res.data.chain.species.name)){
                 getEvolutionsNames.push({name: res.data.chain.species.name});
                 setEvolution(getEvolutionsNames);
             }
 
             if(res.data.chain.evolves_to.length){
-                if(!getEvolutionsNames.find(getEvolutionsNames => getEvolutionsNames.name == res.data.chain.evolves_to[0].species.name)){
+                if(!getEvolutionsNames.find(getEvolutionsNames => getEvolutionsNames.name === res.data.chain.evolves_to[0].species.name)){
                     getEvolutionsNames.push({name: res.data.chain.evolves_to[0].species.name});  
                 }            
             } else {                
@@ -106,7 +103,7 @@ export const PokeInfoPage =()=>{
             }
 
             if(res.data.chain.evolves_to[0].evolves_to.length){
-                if(!getEvolutionsNames.find(getEvolutionsNames => getEvolutionsNames.name == res.data.chain.evolves_to[0].evolves_to[0].species.name)){
+                if(!getEvolutionsNames.find(getEvolutionsNames => getEvolutionsNames.name === res.data.chain.evolves_to[0].evolves_to[0].species.name)){
                     getEvolutionsNames.push({name: res.data.chain.evolves_to[0].evolves_to[0].species.name})
                 }
             } 
@@ -145,7 +142,7 @@ export const PokeInfoPage =()=>{
         if(!pokeNumber){
             getPokemon();
         }
-    },[])
+    })
 
     return (
         <Root>           
@@ -200,7 +197,7 @@ export const PokeInfoPage =()=>{
                         </StatusLabels>
                         {pokeStats?.map(stats=>{
                             return (     
-                                <div>
+                                <div key={stats.stat.name}>
                                     <StatusName>
                                         <Capitalizer str={stats.stat.name}/>
                                     </StatusName>                     
@@ -223,7 +220,7 @@ export const PokeInfoPage =()=>{
                     {evolutions?.map(item=>{
                         return (
                             <GridContainer key={item.name}>
-                                <CardPokemon name={item.name}/>
+                                <CardPokemon name={item.name} pokedata={false}/>
                             </GridContainer>
                         )
                     })}          

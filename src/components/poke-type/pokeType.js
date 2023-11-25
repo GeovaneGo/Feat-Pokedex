@@ -31,7 +31,7 @@ export const PokeType =({pokeInfo})=>{
         <TypesGrid>
             {pokeType?.map(pokeMon=>{
                 return (
-                    <div>
+                    <div key={pokeMon.type.name}>
                         <PokeIconsBg  iconbgheight={pokeIconHeigth} iconbgwidth={pokeIconWidth} bgcolor={typeColor[pokeMon.type.name]}>                            
                             <PokeIcons iconwidth={iconWidth} src={require(`../../typeIcons/${pokeMon.type.name}.svg`)}></PokeIcons>
                             <TypeLabel fontSize={fontZise}>

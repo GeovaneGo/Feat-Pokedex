@@ -53,7 +53,7 @@ export const GridItem = styled.div `
 `;
 
 export const DefaultLabel = styled.label`    
-    color: #201e1e;
+    color: #606367;
     font-size: 20px;
     font-weight:bold; 
     justify-self: center;
