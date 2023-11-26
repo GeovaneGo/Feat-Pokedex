@@ -47,7 +47,7 @@ export const Mainfooter = styled.footer`
 
 export const ImgBanner = styled.div`
     display: grid;   
-    height: 60px;
+    height: 80px;
     width: auto;
     padding: 4px;
     background: url(${props=>props.bgimage}) center;
@@ -107,7 +107,6 @@ export const GridMenu = styled.div`
 `;
 
 export const GridItem = styled.div `
-    display: flex;
     margin: auto;
 `;
 
@@ -135,3 +134,21 @@ export const DefaultIcon = styled.img`
     margin-top: -7px;
     margin-right: 10px;
 `;
+
+export const SerchField = styled.input`
+    min-width: 350px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    font-family: 'Poppins', sans-serif;
+    color: #363738;
+    font-weight: bold;
+    margin-left: 15px;
+
+`
+
+export const ItensFound = styled.div`
+    float: right; 
+    font-family: 'Poppins', sans-serif;
+    color: #656768;
+    font-weight: bold;
+`
