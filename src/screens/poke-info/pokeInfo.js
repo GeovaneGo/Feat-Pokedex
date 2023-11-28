@@ -159,7 +159,7 @@ export const PokeInfoPage =()=>{
                     </DefaultLabel> 
                 </div>             
             </PokeInfo>
-            <PokeInfo margintop={"-32px;"}>                
+            <PokeInfo margintop={"-35px;"}>                
                 <PokeNav>                    
                     {  hasPrev &&
                         <div>                  

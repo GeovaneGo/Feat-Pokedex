@@ -1,6 +1,6 @@
 import { useEffect, useState} from 'react';
 import CardPokemon from '../../components/card-pokemon/cardPokemon';
-import { GridWrapper, MainHeader, GridContainer, Mainfooter, Root, ImgBanner, ShowMoreBtn, DefaultLabel, DefaultIcon, SerchField, GridMenu, GridItem, ItensFound} from './mainPage.styles'
+import { GridWrapper, MainHeader, GridContainer, Mainfooter, Root, ImgBanner, ShowMoreBtn, DefaultLabel, DefaultIcon, SerchField, GridMenu, GridItem, ItensFound, Explore} from './mainPage.styles'
 import api from '../../api/api';
 import BackToTop from '../../components/buttonn-back-top/btnBackTop';
 import pokeBanner from "../../menu.png"
@@ -54,10 +54,11 @@ export const MainPage =()=>{
       })
       if(pokemonFound.length > 0){
         setPokemons(pokemonFound)
+        setSearchResults(pokemonFound.length);
       } else {
         setPokemons(null)
+        setSearchResults(null);
       }
-      setSearchResults(pokemonFound.length);
       setShowBtn(true);
       setInfinityScroll(false);
     } else if (target.keyCode === 13 && [...target.target.value].length === 0){
@@ -83,13 +84,18 @@ export const MainPage =()=>{
         <GridMenu>
           <GridItem>
             <div>
-            <DefaultLabel>
-              Buscar:
-            </DefaultLabel>  
-            <SerchField onKeyDown={SearchEvent} ></SerchField>
+              <DefaultLabel>
+                Buscar:
+              </DefaultLabel>  
+              <SerchField onKeyDown={SearchEvent} ></SerchField>
             </div>
             {searchResults &&
-              <ItensFound><DefaultLabel>{searchResults}</DefaultLabel> pokémons encontrados.</ItensFound>
+              <ItensFound>
+                <DefaultLabel>
+                  {searchResults}
+                </DefaultLabel>
+                pokémons encontrados.
+              </ItensFound>
             }
           </GridItem>
         </GridMenu>   
@@ -114,9 +120,9 @@ export const MainPage =()=>{
                 <DefaultIcon src={pokeball}>
 
                 </DefaultIcon>
-                <DefaultLabel>
+                <Explore>
                     Explorar Mais!
-                </DefaultLabel>
+                </Explore>
             </ShowMoreBtn>
           </div>
         }  

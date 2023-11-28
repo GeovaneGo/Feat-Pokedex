@@ -21,7 +21,7 @@ export const BackToTop =()=> {
         <BtnBackToTop display={displayInfo} onClick={FnBackToTop}>
             <DefaultIcon src={pokeball}></DefaultIcon>
             <DefaultLabel>                
-                Subir!
+                Go Up!
             </DefaultLabel>                
         </BtnBackToTop>
     )

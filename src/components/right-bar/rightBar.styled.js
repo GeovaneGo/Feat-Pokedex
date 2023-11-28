@@ -9,7 +9,7 @@ export const DivRightBar = styled.div`
     right: 0;
     box-shadow: 0 0 5px rgba(0,0,0,.2);
     background-color: #FFF;
-    border-radius: 20px;
+    border-radius: 10px;
     animation: fadeIn 200ms;
     @keyframes fadeIn {
         0% {

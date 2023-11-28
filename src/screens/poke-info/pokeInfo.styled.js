@@ -27,9 +27,7 @@ export const PokeInfo = styled.div`
     height: 80px;
     width: auto;
     padding: 4px;
-    background: url(${props=>props.bgimage}) center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: url(${props=>props.bgimage});
     text-align: center;
     transform: rotate(${props=>props.rotate}deg);
     margin-top: ${props=>props.margintop};

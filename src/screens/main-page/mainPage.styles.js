@@ -50,9 +50,7 @@ export const ImgBanner = styled.div`
     height: 80px;
     width: auto;
     padding: 4px;
-    background: url(${props=>props.bgimage}) center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: url(${props=>props.bgimage});
     text-align: center;
     transform: rotate(${props=>props.rotate}deg);
     margin-top: ${props=>props.margintop};
@@ -123,16 +121,23 @@ export const GridContainer = styled.div`
 export const ShowMoreBtn = styled.button`
     width: 26dvh;
     height: 52px;
-    border-radius: 25px;
-    background-color: #afd8e1;
+    border-radius: 5px;
+    background-color: #6296a5;
     border: none;
     box-shadow: 0px 0px 2px black;
 `
 
+export const Explore = styled.label`   
+    font-family: 'Poppins', sans-serif;
+    color: #f1f1f1;
+    font-weight: bold;
+    margin-top: 12px;
+`
+
 export const DefaultIcon = styled.img`
     width: 30px; 
+    margin-right: 20px;
     margin-top: -7px;
-    margin-right: 10px;
 `;
 
 export const SerchField = styled.input`

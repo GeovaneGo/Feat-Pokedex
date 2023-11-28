@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PokeIconsBg = styled.div`
     font-size: 14px;
-    border-radius: 10px;
+    border-radius: 5px;
     width: ${props=>props.iconbgwidth}; ;
     padding: 10px;
     display: flex;

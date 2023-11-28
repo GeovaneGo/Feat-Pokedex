@@ -4,7 +4,7 @@ export const BtnBackToTop = styled.button`
     color: white;
     width: 18dvh;
     height: 45px;
-    border-radius: 10px;
+    border-radius: 5px;
     position: fixed;
     right: 15px;
     bottom: 15px;
@@ -22,7 +22,7 @@ export const DefaultLabel = styled.strong`
     color: #ffffff;
     font-size: 15px;
     height: 24px;
-    margin-left:8px;
+    margin-left:15px;
 `; 
 
 export const DefaultIcon = styled.img`

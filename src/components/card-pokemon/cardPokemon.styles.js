@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
     height: 335px;
     min-width: 220px;
     box-shadow: 0px 0px 11px #e6e6e6;
-    border-radius: 20px ;
+    border-radius: 10px ;
     position: relative;
     cursor: default;
     &:hover {
@@ -39,7 +39,7 @@ export const PokeName = styled.strong`
 
 export const PoketypesContainer = styled.a`
     display: flex;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 180px;
     height: 180px;
     justify-self: center;
@@ -73,7 +73,7 @@ export const CardTypeBg = styled.div`
     font-family: 'Poppins', sans-serif;
     bottom:0;
     width:100%;
-    border-radius: 10px;
+    border-radius: 5px;
 `;
 
 export const PokeNumber = styled.strong`
