@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Root = styled.div`    
-    padding: 10px 80px;
+    padding: 10px;
 
     @media (min-width: 600px){        
         padding: 10px 100px; 
@@ -20,10 +20,13 @@ export const Root = styled.div`
 }
 `
 export const MainDiv = styled.div`
+    min-height: 592px;
     display: grid;
     grid-template-columns: 1fr;
     margin: 20px ;
+    border-radius: 10px;
     border-color: gray;
+    border-style: solid;
     
     @media (min-width: 600px){    
     grid-template-columns: 1fr;    
@@ -49,7 +52,7 @@ export const DefaultImg = styled.img`
     transition: ease all 0.5s;
 
     @media (min-width: 600px){
-        width: 480px;
+        width: 300px;
     }
 
     @media (min-width: 900px){   
@@ -67,6 +70,7 @@ export const DefaultImg = styled.img`
 
 export const DivContent = styled.div`
     margin: auto;
+    padding: 20px;
 `
 
 export const DivContainer = styled.div `

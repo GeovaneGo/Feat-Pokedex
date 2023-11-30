@@ -5,8 +5,8 @@ export const PokeType =({pokeInfo})=>{
     const pokeType = pokeInfo.pokeType;
     const iconWidth = pokeInfo.iconWidth;
     const pokeIconHeigth = pokeInfo.pokeIconHeigth;
-    const pokeIconWidth = pokeInfo.pokeIconWidth || "110px";
-    const fontZise = pokeInfo.fontSize || "15px"; 
+    const pokeIconWidth = pokeInfo.pokeIconWidth || "90px";
+    const fontZise = pokeInfo.fontSize || "12px";
     const typeColor = {
         normal: "gray",
         fire:"#f9a555d9",
@@ -27,7 +27,8 @@ export const PokeType =({pokeInfo})=>{
         dark:"#595761d9",
         fairy: "#ed93e4d9"
     };
-    return (
+    
+    return (      
         <TypesGrid>
             {pokeType?.map(pokeMon=>{
                 return (

@@ -1,24 +1,17 @@
 import styled from "styled-components";
 
 export const DivRightBar = styled.div`
-    width: 600px;
+    width: 410px;
     height: 715.531px;
-    position: absolute;
-    ${props=>props.display};
+    position: fixed;
     z-index: 1120;
-    right: 0;
+    right: ${props=>props.right};
     box-shadow: 0 0 5px rgba(0,0,0,.2);
     background-color: #FFF;
     border-radius: 10px;
-    animation: fadeIn 200ms;
-    @keyframes fadeIn {
-        0% {
-            transform: translatex(600px);
-        }            
-        100% {
-            transform: translatex(0px);
-        }
-    }
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
 `;
 
 export const RightBarHeader = styled.div`
@@ -34,3 +27,16 @@ export const RightBarFooter = styled.div`
     width:100%;
     position: absolute;
 `;
+
+export const MenuBar = styled.div`
+    position: absolute;
+    display: flex;
+    left: -70px;
+    top: 20px;
+    background-image: url(${props=>props.bgimage});
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    padding: 10px;
+`

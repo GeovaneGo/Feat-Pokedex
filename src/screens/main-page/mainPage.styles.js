@@ -5,10 +5,11 @@ export const Root = styled.div`
 `
 
 export const DefaultLabel = styled.strong`    
-    color: #606367;
+    color: #f1f1f1;
     font-size: 20px;
     justify-self: center;
     height: 24px;
+    margin: 5px;
 `; 
 
 export const MainHeader = styled.header`
@@ -50,9 +51,8 @@ export const ImgBanner = styled.div`
     height: 80px;
     width: auto;
     padding: 4px;
-    background: url(${props=>props.bgimage});
+    background-color: #363738;
     text-align: center;
-    transform: rotate(${props=>props.rotate}deg);
     margin-top: ${props=>props.margintop};
 `
 
@@ -154,6 +154,6 @@ export const SerchField = styled.input`
 export const ItensFound = styled.div`
     float: right; 
     font-family: 'Poppins', sans-serif;
-    color: #656768;
+    color: #f1f1f1;
     font-weight: bold;
 `

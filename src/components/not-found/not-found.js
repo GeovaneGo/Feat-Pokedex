@@ -10,13 +10,13 @@ export const PokeNotFound =()=>{
           </DivContent> 
 
           <DivContent>
-            <div>
-              <h3>Nenhum Pokémon corresponde à sua pesquisa!</h3>
-              <p><strong>Experimente estas sugestões para encontrar um Pokémon:</strong></p>
+            <div style={{margin: 'auto'}}>
+              <h3  style={{color: '#4d4d4d'}}>Nenhum Pokémon corresponde à sua pesquisa!</h3>
+              <p  style={{color: '#4d4d4d'}}><strong>Experimente estas sugestões para encontrar um Pokémon:</strong></p>
               <ul>
-              <li><p>Reduza o número de parâmetros de pesquisa.</p></li>
-              <li><p>Procure apenas por um tipo de Pokémon de cada vez.</p></li>
-              <li><p>Tente procurar por tamanhos e formas diferentes.</p></li></ul>
+              <li><p style={{color: '#4d4d4d'}}>Reduza o número de parâmetros de pesquisa.</p></li>
+              <li><p style={{color: '#4d4d4d'}}>Procure apenas por um tipo de Pokémon de cada vez.</p></li>
+              <li><p style={{color: '#4d4d4d'}}>Tente procurar por tamanhos e formas diferentes.</p></li></ul>
             </div>
           </DivContent>
         </MainDiv>
@@ -24,5 +24,4 @@ export const PokeNotFound =()=>{
 
     )
 }
-
 export default PokeNotFound;

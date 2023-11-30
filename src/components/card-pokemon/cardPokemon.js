@@ -22,7 +22,7 @@ const CardPokemon =({name, pokedata})=>{
             setPokeType(res.data.types);
             setPokeNumber(res.data.id);
             setPokeload(true);
-          })     
+        })
     }
 
     useEffect(()=>{

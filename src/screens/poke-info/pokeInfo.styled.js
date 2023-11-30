@@ -3,35 +3,21 @@ import styled from "styled-components";
 export const Root = styled.div`
         min-height: 100dvh;
 `
-
-export const PokeLogo = styled.img`
-    cursor: pointer;
-    &:hover {
-        animation: tilt 200ms;
-        @keyframes tilt {
-            0% {
-                transform: translatey(0px);
-            }            
-            50% {
-                transform: translatey(-5px);
-            }
-            100% {
-                transform: translatey(0px);
-            }
-        }
-    }
-`
-
 export const PokeInfo = styled.div`
     display: grid;   
-    height: 80px;
+    height: ${props=>props.height};
     width: auto;
-    padding: 4px;
-    background: url(${props=>props.bgimage});
+    background-color: #363738;
     text-align: center;
-    transform: rotate(${props=>props.rotate}deg);
     margin-top: ${props=>props.margintop};
 `
+
+export const BannerName = styled.div`
+    background-image: url(${props=>props.src});
+    background-repeat: no-repeat;
+    background-position: top;
+`
+
 export const DefaultLabel = styled.strong`
     color: ${props=>props.textcolor};    
     margin: ${props=>props.textmargin};    
@@ -441,19 +427,31 @@ export const NextPrev = styled.a`
     font-weight:bold; 
     border-radius: 10PX;
     padding: 2px;
-    transition: color .2s,background-color .2s;
-    width: 160px;
+    background-image: url(${props=>props.src});
+    background-repeat: no-repeat;
+    background-position: ${props=>props.position};
+    width: 190px;
     height: 25px;
-    color: black;
+    color: white;
     cursor: Pointer;
+    &:link{        
+        text-decoration: none!important;;
+    }
+    &:hover {
+        animation: tilt 200ms;
+        @keyframes tilt {
+            0% {
+                transform: translatey(0px);
+            }            
+            50% {
+                transform: translatey(-5px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+    }
       
-    &:link{
-        text-decoration: none;
-    }
-
-    &:hover{
-       background-color: #e8edee;
-    }
 `; 
 
 export const PokeNav = styled.nav`  
