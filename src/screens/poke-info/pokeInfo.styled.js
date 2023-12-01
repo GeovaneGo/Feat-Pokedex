@@ -424,15 +424,18 @@ export const NextPrev = styled.a`
     font-family: 'Poppins', sans-serif;
     text-align: center;
     font-size: 14px;
-    font-weight:bold; 
     border-radius: 10PX;
-    padding: 2px;
-    background-image: url(${props=>props.src});
-    background-repeat: no-repeat;
+    padding: 2px;    
+    background-color: #DC143C;
+    border-top-right-radius: ${props=>props.toprradius};
+    border-bottom-right-radius:${props=>props.bottomrradius};
+    border-top-left-radius: ${props=>props.toplradius};
+    border-bottom-left-radius:${props=>props.bottomlradius};
     background-position: ${props=>props.position};
-    width: 190px;
+    width: 215px;
     height: 25px;
     color: white;
+    font-weight:bold; 
     cursor: Pointer;
     &:link{        
         text-decoration: none!important;;

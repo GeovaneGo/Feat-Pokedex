@@ -51,12 +51,10 @@ export const PokeInfoPage =()=>{
     const [pokeStats, setPokeStats]=useState([]);    
     const [pokePrevName, setPrevName]=useState('');
     const [pokeNextName, setNextName]=useState('');
-    const [evolutions, setEvolution]=useState([]); 
-    const [weakness, setWeakness]=useState([]);       
+    const [evolutions, setEvolution]=useState([]);    
     const getEvolutionsNames = [];
     const pokeInfo ={
         pokeType: pokeType,
-        pokeWeakness: weakness,
         iconWidth: '18px',
         pokeIconHeigth: '35px',
         pokeIconWidth: "100px",
@@ -169,14 +167,14 @@ export const PokeInfoPage =()=>{
                 <PokeNav>                    
                     {  hasPrev &&
                         <div>                  
-                            <NextPrev src={ArrowNavL} position={"left"} setfloat="left" href={"/pokemon/"+ pokePrevName}>
+                            <NextPrev  toplradius={"105px 50px"} toprradius={"10px 10px"} bottomrradius={"10px 10px"} bottomlradius={"105px 50px"} position={"left"} setfloat="left" href={"/pokemon/"+ pokePrevName}>
                                 {`<`} #<LeftZero num={pokeNumber}/>  <Capitalizer str={pokePrevName}/>
                             </NextPrev>
                         </div>
                     }  
                     { hasNext  &&
                         <div>       
-                            <NextPrev src={ArrowNavR} position={"right"} setfloat="right"  href={"/pokemon/"+ pokeNextName}>
+                            <NextPrev toprradius={"105px 50px"} bottomrradius={"105px 50px"} position={"right"} setfloat="right"  href={"/pokemon/"+ pokeNextName}>
                                 <Capitalizer str={pokeNextName}/> #<LeftZero num={pokeNumber}/>  {`>`}
                             </NextPrev>  
                         </div>
@@ -219,7 +217,7 @@ export const PokeInfoPage =()=>{
                                 Weakness:
                         </StatusLabels>
                     </div>
-                    <GetWeakness pokeInfo={pokeInfo}></GetWeakness>     
+                    <GetWeakness pokeInfo={pokeInfo}></GetWeakness>       
                 </ResponsivDiv>
             </PokeContainer>           
             <EvoContainer> 

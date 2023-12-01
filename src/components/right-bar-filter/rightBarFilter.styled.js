@@ -39,4 +39,5 @@ export const MenuBar = styled.div`
     height: 70px;
     justify-content: center;
     padding: 10px;
+    cursor: pointer;
 `

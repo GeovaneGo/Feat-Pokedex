@@ -6,7 +6,7 @@ export const Root = styled.div`
 
 export const DefaultLabel = styled.strong`    
     color: #f1f1f1;
-    font-size: 20px;
+    font-size: ${props=>props.fontzize};
     justify-self: center;
     height: 24px;
     margin: 5px;
@@ -48,7 +48,7 @@ export const Mainfooter = styled.footer`
 
 export const ImgBanner = styled.div`
     display: grid;   
-    height: 80px;
+    height: 90px;
     width: auto;
     padding: 4px;
     background-color: #363738;
@@ -147,7 +147,8 @@ export const SerchField = styled.input`
     font-family: 'Poppins', sans-serif;
     color: #363738;
     font-weight: bold;
-    margin-left: 15px;
+    padding: 4px 10px;
+    margin-right: 10px;
 
 `
 
@@ -156,4 +157,15 @@ export const ItensFound = styled.div`
     font-family: 'Poppins', sans-serif;
     color: #f1f1f1;
     font-weight: bold;
+    font-size: 10px;
+`
+
+export const InputSearchBtn = styled.div`
+    cursor: pointer;
+    background-color: orange;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    padding: 5px;
 `

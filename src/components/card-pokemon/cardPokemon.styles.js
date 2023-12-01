@@ -14,7 +14,6 @@ export const CardContainer = styled.div`
     cursor: default;
     &:hover {
         
-        box-shadow: 0px 0px 12px #94e6fa;
         animation: tilt 200ms;
         @keyframes tilt {
             0% {
@@ -53,9 +52,8 @@ export const PoketypesContainer = styled.a`
         100% {
             transform: rotate(${props=>props.rotate});
         }
-}
-
-
+        
+    }
 `;
 
 export const DefaultImg = styled.img`

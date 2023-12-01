@@ -1,6 +1,6 @@
 import { useEffect, useState} from 'react';
 import CardPokemon from '../../components/card-pokemon/cardPokemon';
-import { GridWrapper, MainHeader, GridContainer, Mainfooter, Root, ImgBanner, ShowMoreBtn, DefaultLabel, DefaultIcon, SerchField, GridMenu, GridItem, ItensFound, Explore} from './mainPage.styles'
+import { GridWrapper, MainHeader, GridContainer, Mainfooter, Root, ImgBanner, ShowMoreBtn, DefaultLabel, DefaultIcon, SerchField, GridMenu, GridItem, ItensFound, Explore, InputSearchBtn} from './mainPage.styles'
 import api from '../../api/api';
 import BackToTop from '../../components/buttonn-back-top/btnBackTop';
 import pokeball from "../../pokeball.png";
@@ -9,6 +9,7 @@ import PokeNotFound from '../../components/not-found/not-found';
 import Skeleton from '../../components/skeleton-loading/skeletonLoading';
 import BackToHome from '../../components/back-home/backToHome';
 import RightBarFilter from '../../components/right-bar-filter/rightBarFilter';
+import InputFilter from '../../input-search-bg.png';
 
 
 export const MainPage =()=>{
@@ -49,9 +50,9 @@ export const MainPage =()=>{
 
   function SearchEvent (target){
     const pokemonFound = [];
-    if(target.keyCode === 13 && [...target.target.value].length > 0){
+    if(target.keyCode === 13 && target.target.value.length > 0){
       allNames?.map(pokemon=>{
-          if(pokemon.name.includes(target.target.value) || pokemon.url.includes(target.target.value)){
+          if(pokemon.name.includes(target.target.value) || pokemon.url.split("/")[6].includes(target.target.value)){
             pokemonFound.push(pokemon);
           }
       })
@@ -65,13 +66,33 @@ export const MainPage =()=>{
       setShowBtn(true);
       setInfinityScroll(false);
       setSourceItens("search");
-    } else if (target.keyCode === 13 && [...target.target.value].length === 0){
+    } else if (target.keyCode === 13 && target.target.value.length === 0){
       allPokemons();
       setShowBtn(false);
       setInfinityScroll(false);
       setSearchResults(null);
       setSourceItens("default");
     }
+  }
+
+  function ResetSearch(){
+    console.log("Click")
+    allPokemons();
+    setShowBtn(false);
+    setInfinityScroll(false);
+    setSearchResults(null);
+    setSourceItens("default");
+  }
+
+  function FilterApply(){
+      const target = {
+        keyCode: 13,
+        target: {
+          value: document.getElementById("searchField").value,
+        }
+      }
+      SearchEvent(target);
+
   }
 
   useEffect(()=>{
@@ -83,29 +104,34 @@ export const MainPage =()=>{
   return (
     <Root>      
       <MainHeader>
-          <BackToHome/>
+          <BackToHome onClick={ResetSearch}/>
       </MainHeader>
       <ImgBanner>
         <GridMenu>
           <GridItem>
-            <div>
-              <DefaultLabel>
-                Buscar:
+            <div style={{display: 'flex', marginBottom:"4px"}}>
+              <DefaultLabel  fontsize={"20px"}>
+                Search:
               </DefaultLabel>  
-              <SerchField onKeyDown={SearchEvent} ></SerchField>
+              <SerchField onKeyDown={SearchEvent} id="searchField" placeholder='E.g: Pikachu "Enter"'></SerchField>
+              <InputSearchBtn onClick={FilterApply}>
+                <img style={{margin: 'auto'}} src={InputFilter}></img>
+              </InputSearchBtn>
             </div>
-            {searchResults &&
-              <ItensFound>
-                <DefaultLabel>
-                  {searchResults}
-                </DefaultLabel>
-                pokémons encontrados.
-              </ItensFound>
-            }
+            <nav>
+              {searchResults &&
+                <ItensFound>
+                  <DefaultLabel fontsize={"8px"}>
+                    {searchResults}
+                  </DefaultLabel>
+                  pokémons encontrados.
+                </ItensFound>
+              }
+            </nav>
           </GridItem>
         </GridMenu>   
       </ImgBanner>
-      <RightBarFilter prop={"-600px"}></RightBarFilter>
+      <RightBarFilter prop={"-410px"}></RightBarFilter>
       {pokemons &&
         <GridWrapper>
           {pokemons?.map(item=>{

@@ -10,6 +10,21 @@ export const PokeIconsBg = styled.div`
     margin: 4px;
     background-color: ${props=>props.bgcolor};
     height:  ${props=>props.iconbgheight}; //24
+    cursor: pointer;
+    &:hover {
+        animation: tilt 200ms;
+        @keyframes tilt {
+            0% {
+                transform: translatey(0px);
+            }            
+            50% {
+                transform: translatey(-5px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+    }
 `;
 
 export const TypesGrid = styled.div`
@@ -22,7 +37,8 @@ export const TypesGrid = styled.div`
 export const TypeLabel = styled.label`
     text-align: center;
     margin: 4px;
-    font-size: ${props=>props.fontSize};;
+    font-size: ${props=>props.fontSize};
+    cursor: pointer;
 `;
 
 export const PokeIcons = styled.img`
