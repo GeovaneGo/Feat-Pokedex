@@ -1,16 +1,19 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const CardContainer = styled.div`
     display: grid;
+    background-color: #f9f9f9;
     justify-content: center;
     margin: 8px;
     width: 90%;
+    height: 335px;
     min-width: 220px;
-    cursor: pointer;
     box-shadow: 0px 0px 11px #e6e6e6;
-    border-radius: 20px ;
+    border-radius: 10px ;
     position: relative;
+    cursor: default;
     &:hover {
+        
         animation: tilt 200ms;
         @keyframes tilt {
             0% {
@@ -26,7 +29,6 @@ export const CardContainer = styled.div`
     }
 `;
 
-
 export const PokeName = styled.strong`
     color: #368389;
     font-size: 20px;
@@ -34,11 +36,30 @@ export const PokeName = styled.strong`
     height: 24px;
 `;
 
+export const PoketypesContainer = styled.a`
+    display: flex;
+    border-radius: 5px;
+    width: 180px;
+    height: 180px;
+    justify-self: center;
+    background: url(${props=>props.bgimage}) center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;    
+    animation: ${props=>props.pokename} 1s infinite linear;
+    transition: ease all 0.5s;
+    @keyframes ${props=>props.pokename} {
+        100% {
+            transform: rotate(${props=>props.rotate});
+        }
+        
+    }
+`;
+
 export const DefaultImg = styled.img`
     width: 100%;    
-    max-width: 175px;
-    max-height: 175px;
-    opacity: 0.85;
+    max-width: 200px;
+    max-height: 200px;
     margin: auto;
 `;
 
@@ -50,40 +71,7 @@ export const CardTypeBg = styled.div`
     font-family: 'Poppins', sans-serif;
     bottom:0;
     width:100%;
-    border-radius: 10px;
-`;
-
-export const PoketypesContainer = styled.div`
-    display: flex;
-    border-radius: 10px;
-    width: 180px;
-    height: 180px;
-    justify-self: center;
-    background-color: #d2dcdd69;
-`;
-
-export const TypesGrid = styled.div`
-    display: flex;
-    justify-content: center;
-    min-width: 210px;
-`;
-
-export const PokeIconsBg = styled.div`
-    font-size: 14px;
-    border-radius: 10px;
-    width: 90px;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    margin: 4px;
-    background-color: ${props=>props.bgColor};
-    height: 24px;
-`;
-
-export const PokeIcons = styled.img`
-    width: 15px;
-    height: 15px;
-    margin: 4px;
+    border-radius: 5px;
 `;
 
 export const PokeNumber = styled.strong`
