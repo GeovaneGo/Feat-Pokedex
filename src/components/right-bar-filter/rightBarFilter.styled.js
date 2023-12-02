@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DivRightBar = styled.div`
-    width: 410px;
+    width: 350px;
     height: 715.531px;
     position: fixed;
     z-index: 1120;

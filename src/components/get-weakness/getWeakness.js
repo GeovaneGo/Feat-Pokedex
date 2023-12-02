@@ -10,7 +10,7 @@ const GetWeakness =({pokeInfo})=>{
     const iconWidth = pokeInfo.iconWidth; 
     const pokeIconHeigth = pokeInfo.pokeIconHeigth;
     const pokeIconWidth = pokeInfo.pokeIconWidth || "90px";
-    const fontZise = pokeInfo.fontSize || "12px"; 
+    const fontSize = pokeInfo.fontSize || "12px"; 
     const typeColor = Colors;
     
     function getItens(types){
@@ -68,7 +68,7 @@ const GetWeakness =({pokeInfo})=>{
                     <div key={type.name}>
                         <PokeIconsBg  iconbgheight={pokeIconHeigth} iconbgwidth={pokeIconWidth} bgcolor={typeColor[type.name]}>                            
                             <PokeIcons iconwidth={iconWidth} src={require(`../../typeIcons/${type.name}.svg`)}></PokeIcons>
-                            <TypeLabel fontSize={fontZise}>
+                            <TypeLabel fontSize={fontSize}>
                                 <Capitalizer str={type.name}/>
                             </TypeLabel>
                         </PokeIconsBg>

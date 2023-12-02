@@ -33,8 +33,6 @@ import CardPokemon from "../../components/card-pokemon/cardPokemon";
 import BackToHome from "../../components/back-home/backToHome";
 import Skeleton from "../../components/skeleton-loading/skeletonLoading";
 import NameBg from "../../nameBackground.png";
-import ArrowNavR from "../../arrowNavR.png";
-import ArrowNavL from "../../arrowNavL.png";
 import GetWeakness from "../../components/get-weakness/getWeakness";
 
 export const PokeInfoPage =()=>{  
@@ -168,14 +166,14 @@ export const PokeInfoPage =()=>{
                     {  hasPrev &&
                         <div>                  
                             <NextPrev  toplradius={"105px 50px"} toprradius={"10px 10px"} bottomrradius={"10px 10px"} bottomlradius={"105px 50px"} position={"left"} setfloat="left" href={"/pokemon/"+ pokePrevName}>
-                                {`<`} #<LeftZero num={pokeNumber}/>  <Capitalizer str={pokePrevName}/>
+                                {`<`} #<LeftZero num={pokeNumber -1}/>  <Capitalizer str={pokePrevName}/>
                             </NextPrev>
                         </div>
                     }  
                     { hasNext  &&
                         <div>       
                             <NextPrev toprradius={"105px 50px"} bottomrradius={"105px 50px"} position={"right"} setfloat="right"  href={"/pokemon/"+ pokeNextName}>
-                                <Capitalizer str={pokeNextName}/> #<LeftZero num={pokeNumber}/>  {`>`}
+                                <Capitalizer str={pokeNextName}/> #<LeftZero num={pokeNumber + 1}/>  {`>`}
                             </NextPrev>  
                         </div>
                     }

@@ -6,7 +6,7 @@ export const Root = styled.div`
 
 export const DefaultLabel = styled.strong`    
     color: #f1f1f1;
-    font-size: ${props=>props.fontzize};
+    font-size: ${props=>props.fontSize};
     justify-self: center;
     height: 24px;
     margin: 5px;
@@ -141,7 +141,7 @@ export const DefaultIcon = styled.img`
 `;
 
 export const SerchField = styled.input`
-    min-width: 350px;
+    min-width: 200px;
     border-radius: 10px;
     background-color: #f1f1f1;
     font-family: 'Poppins', sans-serif;
@@ -149,6 +149,22 @@ export const SerchField = styled.input`
     font-weight: bold;
     padding: 4px 10px;
     margin-right: 10px;
+
+    @media (min-width: 600px){             
+        width: 450px;
+    }
+
+    @media (min-width: 900px){              
+        width: 600px;
+    }
+
+    @media (min-width: 1270px){        
+        width: 700px;
+    }
+
+    @media (min-width: 1520px){    
+        min-width: 800px;
+    }
 
 `
 
@@ -168,4 +184,24 @@ export const InputSearchBtn = styled.div`
     height: 40px;
     justify-content: center;
     padding: 5px;
+    grid-template-columns: 1fr;
 `
+export const ResponsivDiv = styled.div`    
+    padding: 20px 0;
+
+    @media (min-width: 600px){        
+        padding: 20px 50px;
+    }
+
+    @media (min-width: 900px){        
+        padding: 20px 100px;
+    }
+
+    @media (min-width: 1270px){        
+        padding: 20px 200px;
+    }
+
+    @media (min-width: 1520px){      
+        padding: 20px 250px;     
+    }
+`;

@@ -1,6 +1,6 @@
 import { useEffect, useState} from 'react';
 import CardPokemon from '../../components/card-pokemon/cardPokemon';
-import { GridWrapper, MainHeader, GridContainer, Mainfooter, Root, ImgBanner, ShowMoreBtn, DefaultLabel, DefaultIcon, SerchField, GridMenu, GridItem, ItensFound, Explore, InputSearchBtn} from './mainPage.styles'
+import { GridWrapper, MainHeader, GridContainer, Mainfooter, Root, ImgBanner, ShowMoreBtn, DefaultLabel, DefaultIcon, SerchField, GridMenu, GridItem, ItensFound, Explore, InputSearchBtn, ResponsivDiv} from './mainPage.styles'
 import api from '../../api/api';
 import BackToTop from '../../components/buttonn-back-top/btnBackTop';
 import pokeball from "../../pokeball.png";
@@ -12,7 +12,7 @@ import RightBarFilter from '../../components/right-bar-filter/rightBarFilter';
 import InputFilter from '../../input-search-bg.png';
 
 
-export const MainPage =()=>{
+export const MainPage =({filter})=>{
   const [pokemons, setPokemons]=useState(null);
   const [nextNav, setNextNav]=useState("");
   const [checkShowMoreBtn, setShowBtn]=useState(false);
@@ -20,6 +20,7 @@ export const MainPage =()=>{
   const [allNames, setAllNames]=useState(null);
   const [searchResults, setSearchResults]=useState(null);
   const [sourceItens, setSourceItens]=useState("default");
+  const [filters, setFilters]=useState(filter || null);  
   
   const allPokemons =()=>{
     api.get("pokemon?limit=15&offset=0").then(res=>{
@@ -47,7 +48,7 @@ export const MainPage =()=>{
         setAllNames(res.data.results);
       })
   }
-
+  
   function SearchEvent (target){
     const pokemonFound = [];
     if(target.keyCode === 13 && target.target.value.length > 0){
@@ -76,12 +77,7 @@ export const MainPage =()=>{
   }
 
   function ResetSearch(){
-    console.log("Click")
-    allPokemons();
-    setShowBtn(false);
-    setInfinityScroll(false);
-    setSearchResults(null);
-    setSourceItens("default");
+    console.log("Testando")
   }
 
   function FilterApply(){
@@ -104,34 +100,32 @@ export const MainPage =()=>{
   return (
     <Root>      
       <MainHeader>
-          <BackToHome onClick={ResetSearch}/>
+          <BackToHome source={"main"}/>
       </MainHeader>
       <ImgBanner>
-        <GridMenu>
-          <GridItem>
-            <div style={{display: 'flex', marginBottom:"4px"}}>
-              <DefaultLabel  fontsize={"20px"}>
-                Search:
-              </DefaultLabel>  
-              <SerchField onKeyDown={SearchEvent} id="searchField" placeholder='E.g: Pikachu "Enter"'></SerchField>
-              <InputSearchBtn onClick={FilterApply}>
-                <img style={{margin: 'auto'}} src={InputFilter}></img>
-              </InputSearchBtn>
-            </div>
-            <nav>
-              {searchResults &&
-                <ItensFound>
-                  <DefaultLabel fontsize={"8px"}>
-                    {searchResults}
-                  </DefaultLabel>
-                  pokémons encontrados.
-                </ItensFound>
-              }
-            </nav>
-          </GridItem>
-        </GridMenu>   
+      <ResponsivDiv>
+          <div style={{display: 'flex', marginBottom:"4px"}}>
+            <DefaultLabel  fontSize={"15px"}>
+              Search:
+            </DefaultLabel>  
+            <SerchField onKeyDown={SearchEvent} id="searchField" placeholder='E.g: Pikachu "Enter"'></SerchField>
+            <InputSearchBtn onClick={FilterApply} id="searchBtn">
+              <img style={{margin: 'auto'}} src={InputFilter}></img>
+            </InputSearchBtn>
+          </div>
+          <nav>
+            {searchResults &&
+              <ItensFound>
+                <DefaultLabel fontSize={"8px"}>
+                  {searchResults}
+                </DefaultLabel>
+                pokémons encontrados.
+              </ItensFound>
+            }
+          </nav>
+      </ResponsivDiv>   
       </ImgBanner>
-      <RightBarFilter prop={"-410px"}></RightBarFilter>
+      <RightBarFilter prop={"-350px"}></RightBarFilter>
       {pokemons &&
         <GridWrapper>
           {pokemons?.map(item=>{
@@ -171,4 +165,5 @@ export const MainPage =()=>{
     </Root>
   );
 }
+
 export default MainPage;

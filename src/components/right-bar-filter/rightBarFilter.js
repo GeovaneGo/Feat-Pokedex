@@ -8,11 +8,11 @@ export const RightBarFilter =({prop})=>{
     const [menuTooltip, setTooltip]=useState("Open filters");
 
     function ShowRightBar(){
-        if(righBarDisplay === "-410px"){
+        if(righBarDisplay === "-350px"){
             setDisplay("0px");
             setTooltip("Close Filters");
         } else {
-            setDisplay("-410px");
+            setDisplay("-350px");
             setTooltip("Open filters");
         }
     }
