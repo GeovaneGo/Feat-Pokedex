@@ -32,7 +32,7 @@ export const MenuBar = styled.div`
     position: absolute;
     display: flex;
     left: -70px;
-    top: 20px;
+    top: 90px;
     background-image: url(${props=>props.bgimage});
     background-size: cover;
     width: 70px;

@@ -6,6 +6,7 @@ import LeftZero from "../left-zero/leftZero";
 import pokeballBg from "../../pokeball.png";
 import PokeType from "../poke-type/pokeType";
 import { Tooltip } from "@mui/material";
+import CardBg from "../../cardbg.png";
 
 const CardPokemon =({name, pokedata})=>{
     const [pokeImg, setPokeImage]=useState('');
@@ -32,7 +33,7 @@ const CardPokemon =({name, pokedata})=>{
 
     return(
         <Tooltip title={ `Inspec ${name}`} arrow placement="top">
-            <CardContainer>
+            <CardContainer bgimage={CardBg}>
                 <PokeName>
                     <Capitalizer str={name}/>
                 </PokeName>  

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PokeIconsBg = styled.div`
+export const PokeIconsBg = styled.a`
     font-size: 14px;
     border-radius: 5px;
     width: ${props=>props.iconbgwidth}; ;
@@ -10,6 +10,7 @@ export const PokeIconsBg = styled.div`
     margin: 4px;
     background-color: ${props=>props.bgcolor};
     height:  ${props=>props.iconbgheight}; //24
+    box-shadow: 0px 0px 3px #b3ffff;
     cursor: pointer;
     &:hover {
         animation: tilt 200ms;

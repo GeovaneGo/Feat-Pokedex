@@ -48,7 +48,7 @@ export const Mainfooter = styled.footer`
 
 export const ImgBanner = styled.div`
     display: grid;   
-    height: 90px;
+    height: ${props=>props.setheight};;
     width: auto;
     padding: 4px;
     background-color: #363738;
@@ -58,27 +58,28 @@ export const ImgBanner = styled.div`
 
 export const GridWrapper = styled.div`
     display: grid;
-    padding: 50px 80px;
     min-height: 73.5dvh;
     grid-template-columns: 1fr;
+    border-radius: 15px;
+    border-color: #b3ffff;
+    border-style: solid;
+    border-width: 1px;
+    padding: 15px 0;
+    margin: 15px 0;
 
     @media (min-width: 600px){        
         grid-template-columns: 1fr 1fr;
-        padding: 50px 100px;
     }
 
     @media (min-width: 900px){        
         grid-template-columns: 1fr 1fr 1fr;
-        padding: 50px 150px;
     }
 
-    @media (min-width: 1270px){        
+    @media (min-width: 1370px){        
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        padding: 50px 200px;
     }
 
-    @media (min-width: 1520px){      
-        padding: 50px 250px;     
+    @media (min-width: 1700px){      
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 `;
@@ -112,6 +113,7 @@ export const GridContainer = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
+    justify-self: center;
     gap: 20px;
     min-height: 350px;
     min-width: 240px;
@@ -188,6 +190,9 @@ export const InputSearchBtn = styled.div`
 `
 export const ResponsivDiv = styled.div`    
     padding: 20px 0;
+    background-image: url(${props=>props.bgimage});
+    background-attachment: fixed;
+    background-size: cover;
 
     @media (min-width: 600px){        
         padding: 20px 50px;
@@ -205,3 +210,25 @@ export const ResponsivDiv = styled.div`
         padding: 20px 250px;     
     }
 `;
+
+export const FilterSpan = styled.span`
+    position: relative;
+    z-index: 50;
+`
+
+export const DivFilter = styled.div`
+    background-color: #c8e3e9;
+    color: white;
+    margin-left: 100px;
+    padding: 15px;
+    height: 54px;
+   &:before {
+        background-color: #c8e3e9;
+        content: "";
+        height: 73px;
+        margin: -34px 0 0 -78px;
+        position: absolute;
+        transform: skew(45deg);
+        width: 80px;
+   } 
+`

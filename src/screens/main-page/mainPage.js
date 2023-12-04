@@ -1,6 +1,22 @@
 import { useEffect, useState} from 'react';
 import CardPokemon from '../../components/card-pokemon/cardPokemon';
-import { GridWrapper, MainHeader, GridContainer, Mainfooter, Root, ImgBanner, ShowMoreBtn, DefaultLabel, DefaultIcon, SerchField, GridMenu, GridItem, ItensFound, Explore, InputSearchBtn, ResponsivDiv} from './mainPage.styles'
+import { 
+  GridWrapper,
+  MainHeader,
+  GridContainer,
+  Mainfooter,
+  Root, 
+  ImgBanner, 
+  ShowMoreBtn, 
+  DefaultLabel, 
+  DefaultIcon, 
+  SerchField, 
+  ItensFound, 
+  Explore, 
+  InputSearchBtn, 
+  ResponsivDiv, 
+  DivFilter, 
+  FilterSpan} from './mainPage.styles'
 import api from '../../api/api';
 import BackToTop from '../../components/buttonn-back-top/btnBackTop';
 import pokeball from "../../pokeball.png";
@@ -10,9 +26,12 @@ import Skeleton from '../../components/skeleton-loading/skeletonLoading';
 import BackToHome from '../../components/back-home/backToHome';
 import RightBarFilter from '../../components/right-bar-filter/rightBarFilter';
 import InputFilter from '../../input-search-bg.png';
+import PageBg from "../../pagebg.jpg"
+import { useParams } from 'react-router-dom';
 
 
-export const MainPage =({filter})=>{
+export const MainPage =()=>{
+  const { params } = useParams()
   const [pokemons, setPokemons]=useState(null);
   const [nextNav, setNextNav]=useState("");
   const [checkShowMoreBtn, setShowBtn]=useState(false);
@@ -20,8 +39,6 @@ export const MainPage =({filter})=>{
   const [allNames, setAllNames]=useState(null);
   const [searchResults, setSearchResults]=useState(null);
   const [sourceItens, setSourceItens]=useState("default");
-  const [filters, setFilters]=useState(filter || null);  
-  
   const allPokemons =()=>{
     api.get("pokemon?limit=15&offset=0").then(res=>{
       setPokemons(res.data.results);
@@ -76,10 +93,6 @@ export const MainPage =({filter})=>{
     }
   }
 
-  function ResetSearch(){
-    console.log("Testando")
-  }
-
   function FilterApply(){
       const target = {
         keyCode: 13,
@@ -88,7 +101,6 @@ export const MainPage =({filter})=>{
         }
       }
       SearchEvent(target);
-
   }
 
   useEffect(()=>{
@@ -96,6 +108,7 @@ export const MainPage =({filter})=>{
       allPokemons();
     }
   },[])
+
 
   return (
     <Root>      
@@ -112,50 +125,56 @@ export const MainPage =({filter})=>{
             <InputSearchBtn onClick={FilterApply} id="searchBtn">
               <img style={{margin: 'auto'}} src={InputFilter}></img>
             </InputSearchBtn>
+            <nav>
+              {searchResults &&
+                <ItensFound>
+                  <DefaultLabel fontSize={"15px"}>
+                    {searchResults}
+                  </DefaultLabel>
+                  pokémons encontrados.
+                </ItensFound>
+              }
+            </nav>
           </div>
-          <nav>
-            {searchResults &&
-              <ItensFound>
-                <DefaultLabel fontSize={"8px"}>
-                  {searchResults}
-                </DefaultLabel>
-                pokémons encontrados.
-              </ItensFound>
-            }
-          </nav>
       </ResponsivDiv>   
       </ImgBanner>
-      <RightBarFilter prop={"-350px"}></RightBarFilter>
-      {pokemons &&
-        <GridWrapper>
-          {pokemons?.map(item=>{
-            return (
-              <GridContainer key={item.name}>
-                <CardPokemon name={item.name} pokedata={false}/>
-              </GridContainer>
-            )
-          })}
-        </GridWrapper>
-      }
-      {(!pokemons &&  sourceItens === "search") &&
-        <PokeNotFound></PokeNotFound>    
-      }
-      {(!pokemons &&  sourceItens === "default") &&
-        <Skeleton props={15}></Skeleton> 
-      }    
-      { !checkShowMoreBtn &&
-        <div style={{textAlign:'center', marginBottom: '30px'}}>
-          <ShowMoreBtn onClick={CallPokemons}>
-              <DefaultIcon src={pokeball}>
+      <RightBarFilter prop={"-350px"}></RightBarFilter>      
+      <ResponsivDiv bgimage={PageBg}>
+        <DivFilter>
+          <FilterSpan></FilterSpan>
+        </DivFilter>
+        {pokemons &&
+          <GridWrapper>            
+            {pokemons?.map(item=>{
+              return (
+                <GridContainer key={item.name}>
+                  <CardPokemon name={item.name} pokedata={false}/>
+                </GridContainer>
+              )
+            })}
+          </GridWrapper>
+        }
+        {(!pokemons &&  sourceItens === "search") &&
+          <PokeNotFound></PokeNotFound>    
+        }
+        {(!pokemons &&  sourceItens === "default") &&
+          <Skeleton props={15}></Skeleton> 
+        }  
+        
+        { !checkShowMoreBtn &&
+          <div style={{textAlign:'center', margin: '30px 0'}}>
+            <ShowMoreBtn onClick={CallPokemons}>
+                <DefaultIcon src={pokeball}>
 
-              </DefaultIcon>
-              <Explore>
-                  Explorar Mais!
-              </Explore>
-          </ShowMoreBtn>
-        </div>
-      }  
-      <ImgBanner/> 
+                </DefaultIcon>
+                <Explore>
+                    Explore!
+                </Explore>
+            </ShowMoreBtn>
+          </div>
+        } 
+      </ResponsivDiv>         
+      <ImgBanner setheight={"200px"}/> 
       <Mainfooter>
       </Mainfooter>
       <BackToTop></BackToTop>

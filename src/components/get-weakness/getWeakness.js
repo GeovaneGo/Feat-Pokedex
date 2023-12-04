@@ -65,7 +65,7 @@ const GetWeakness =({pokeInfo})=>{
         <TypesGrid>
             {weakness?.map(type=>{
                 return (
-                    <div key={type.name}>
+                    <div key={type.name} style={{justifyContent:"center"}}>
                         <PokeIconsBg  iconbgheight={pokeIconHeigth} iconbgwidth={pokeIconWidth} bgcolor={typeColor[type.name]}>                            
                             <PokeIcons iconwidth={iconWidth} src={require(`../../typeIcons/${type.name}.svg`)}></PokeIcons>
                             <TypeLabel fontSize={fontSize}>

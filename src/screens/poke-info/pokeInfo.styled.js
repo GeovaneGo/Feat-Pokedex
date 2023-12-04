@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const Root = styled.div`
         min-height: 100dvh;
+        background-image: url(${props=>props.pagebg});
+        background-attachment: fixed;
+        background-size: cover;
 `
 export const PokeInfo = styled.div`
     display: grid;   
@@ -31,6 +34,8 @@ export const DefaultLabel = styled.strong`
 export const PokeContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr;
+    margin: 15px 0;
+    gap: 1px;
 
     @media (min-width: 600px){       
         padding: 0 50px;       
@@ -38,12 +43,12 @@ export const PokeContainer = styled.div`
     }
 
     @media (min-width: 900px){        
-        padding: 0 100px;
+        padding: 0 50px;
         grid-template-columns: 1fr 1fr;
     }
 
     @media (min-width: 1270px){        
-        padding: 0 200px;
+        padding: 0 100px;
         grid-template-columns: 1fr 1fr;
     }
 
@@ -177,22 +182,29 @@ export const PokeStatusContainer = styled.div`
 
 
 export const ResponsivDiv = styled.div`
-    padding: 50px 80px;
-    background-color: white;   
+    padding: 50px 0;    
+    border-color: #b3ffff;
+    border-style: solid;
+    border-width: 1px;  
+    border-radius: 15px;
+    background: ${props=>props.bgimage};
+    background-repeat: no-repeat;
+    background-position: bottom;
+
     @media (min-width: 600px){        
-        padding: 50px;
+        padding: 50px 0;
     }
 
-    @media (min-width: 900px){        
-        padding: 50px;
+    @media (min-width: 900px){      
+        padding: 50px 0;
     }
 
     @media (min-width: 1270px){        
-        padding: 50px;
+        padding: 50px 0;
     }
 
     @media (min-width: 1520px){      
-        padding: 50px;     
+        padding: 50px 0;     
     }
 `;
 
@@ -327,11 +339,13 @@ export const StatusLabels = styled.strong`
 
 export const EvoInfos = styled.div`
     display: grid;
-    width:  84%;
+    width:  100%;
     justify-items: center;
     gap: 20px;
-    min-height: 400px;
-    background-color: #b0cfcb;
+    min-height: 450px;
+    border-color: #b3ffff;
+    border-style: solid;
+    border-width: 1px; 
     border-radius: 10px;
     margin-bottom: 50px;    
     grid-template-columns: 1fr;
@@ -359,6 +373,9 @@ export const EvoInfos = styled.div`
 
 export const EvoContainer = styled.div`
     display: grid;
+    background-image: url(${props=>props.pagebg});
+    background-attachment: fixed;
+    background-size: cover;
 
     @media (min-width: 600px){       
         padding: 0 50px;       
@@ -369,7 +386,7 @@ export const EvoContainer = styled.div`
     }
 
     @media (min-width: 1270px){        
-        padding: 0 200px;
+        padding: 0 100px;
     }
 
     @media (min-width: 1520px){      
