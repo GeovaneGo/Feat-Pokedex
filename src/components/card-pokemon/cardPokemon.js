@@ -3,12 +3,10 @@ import api from "../../api/api";
 import Capitalizer from "../capitalizer/capitalizer";
 import {  DefaultImg, CardContainer, PoketypesContainer, PokeNumber, CardTypeBg, PokeName } from "./cardPokemon.styles";
 import LeftZero from "../left-zero/leftZero";
-import pokeballBg from "../../pokeball.png";
 import PokeType from "../poke-type/pokeType";
 import { Tooltip } from "@mui/material";
-import CardBg from "../../cardbg.png";
 
-const CardPokemon =({name, pokedata})=>{
+const CardPokemon =({name, pokedata, setTtypeFilters})=>{
     const [pokeImg, setPokeImage]=useState('');
     const [pokeType, setPokeType]=useState([]);    
     const [pokeNumber, setPokeNumber]=useState('');
@@ -33,19 +31,19 @@ const CardPokemon =({name, pokedata})=>{
 
     return(
         <Tooltip title={ `Inspec ${name}`} arrow placement="top">
-            <CardContainer bgimage={CardBg}>
+            <CardContainer bgimage={"/cardbg.png"}>
                 <PokeName>
                     <Capitalizer str={name}/>
                 </PokeName>  
                     {!pokeLoad ?
-                        <PoketypesContainer  pokename={name} bgimage={pokeballBg} rotate={"360deg"} href={"/pokemon/"+ name}>
+                        <PoketypesContainer  pokename={name} bgimage={"pokeball.png"} rotate={"360deg"} href={"/pokemon/"+ name}>
                         </PoketypesContainer>
                         :
-                        <PoketypesContainer  bgimage={pokeballBg} href={"/pokemon/"+ name}>
+                        <PoketypesContainer  bgimage={"pokeball.png"} href={"/pokemon/"+ name}>
                             <DefaultImg src={pokeImg}></DefaultImg>
                         </PoketypesContainer>
                     }
-                    <PokeType pokeInfo={pokeInfo}/>
+                    <PokeType setTtypeFilters={setTtypeFilters} pokeInfo={pokeInfo}/>
                 <CardTypeBg>     
                     <PokeNumber>
                         #<LeftZero num={pokeNumber}/>

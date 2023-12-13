@@ -24,7 +24,6 @@ import {
     GridContainer,
     BannerName,
     } from "./pokeInfo.styled";
-import pokeballBg from "../../pokeball.png"
 import Capitalizer from "../../components/capitalizer/capitalizer";
 import LeftZero from "../../components/left-zero/leftZero";
 import PokeType from "../../components/poke-type/pokeType";
@@ -32,11 +31,7 @@ import BackToTop from "../../components/buttonn-back-top/btnBackTop";
 import CardPokemon from "../../components/card-pokemon/cardPokemon";
 import BackToHome from "../../components/back-home/backToHome";
 import Skeleton from "../../components/skeleton-loading/skeletonLoading";
-import NameBg from "../../nameBackground.png";
 import GetWeakness from "../../components/get-weakness/getWeakness";
-import PageBg from "../../pagebg.jpg";
-import BgPokeType from "../../bgPokeInfo.png";
-import BgPokeStatus from "../../bgweakness.png";
 
 export const PokeInfoPage =()=>{  
 
@@ -150,12 +145,12 @@ export const PokeInfoPage =()=>{
     })
 
     return (
-        <Root  pagebg={PageBg}>           
+        <Root  pagebg={"/pagebg.jpg"}>           
             <MainHeader>
                 <BackToHome/>                
             </MainHeader> 
             <PokeInfo height={"80px"}>    
-                <BannerName  src={NameBg}>
+                <BannerName  src={"/nameBackground.png"}>
                     <DefaultLabel textcolor={'#529bad'}>
                         #<LeftZero num={pokeNumber}/> 
                     </DefaultLabel>
@@ -184,8 +179,8 @@ export const PokeInfoPage =()=>{
                 </PokeNav> 
             </PokeInfo>
             <PokeContainer>
-                <ResponsivDiv bgimage={`url(${BgPokeType})`}>
-                    <PokeInfoContainer bgimage={pokeballBg}>
+                <ResponsivDiv bgimage={`url(${"/bgPokeInfo.png"})`}>
+                    <PokeInfoContainer bgimage={"/pokeball.png"}>
                         <DefaultImg src={pokeImage}>
                         </DefaultImg>
                     </PokeInfoContainer> 
@@ -196,7 +191,7 @@ export const PokeInfoPage =()=>{
                     </div>
                     <PokeType pokeInfo={pokeInfo}></PokeType>
                 </ResponsivDiv>
-                <ResponsivDiv bgimage={`url(${BgPokeStatus})`}>
+                <ResponsivDiv bgimage={`url(${"/bgweakness.png"})`}>
                     <PokeStatusContainer>
                         <StatusLabels>
                             Stats

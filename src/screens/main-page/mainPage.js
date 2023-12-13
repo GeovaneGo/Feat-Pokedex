@@ -19,19 +19,15 @@ import {
   FilterSpan} from './mainPage.styles'
 import api from '../../api/api';
 import BackToTop from '../../components/buttonn-back-top/btnBackTop';
-import pokeball from "../../pokeball.png";
 import { BottomScrollListener } from 'react-bottom-scroll-listener';
 import PokeNotFound from '../../components/not-found/not-found';
 import Skeleton from '../../components/skeleton-loading/skeletonLoading';
 import BackToHome from '../../components/back-home/backToHome';
 import RightBarFilter from '../../components/right-bar-filter/rightBarFilter';
-import InputFilter from '../../input-search-bg.png';
-import PageBg from "../../pagebg.jpg"
-import { useParams } from 'react-router-dom';
 
 
 export const MainPage =()=>{
-  const { params } = useParams()
+  const [typeFilter, setTtypeFilters]=useState([]);
   const [pokemons, setPokemons]=useState(null);
   const [nextNav, setNextNav]=useState("");
   const [checkShowMoreBtn, setShowBtn]=useState(false);
@@ -46,6 +42,8 @@ export const MainPage =()=>{
       getAllPokemons();
     })
   }
+
+  console.log(typeFilter)
   
   function CallPokemons(){
     setShowBtn(true);
@@ -109,6 +107,9 @@ export const MainPage =()=>{
     }
   },[])
 
+  useEffect(()=>{
+
+  },[typeFilter])
 
   return (
     <Root>      
@@ -123,7 +124,7 @@ export const MainPage =()=>{
             </DefaultLabel>  
             <SerchField onKeyDown={SearchEvent} id="searchField" placeholder='E.g: Pikachu "Enter"'></SerchField>
             <InputSearchBtn onClick={FilterApply} id="searchBtn">
-              <img style={{margin: 'auto'}} src={InputFilter}></img>
+              <img style={{margin: 'auto'}} alt="" src={"/input-search-bg.png"}></img>
             </InputSearchBtn>
             <nav>
               {searchResults &&
@@ -139,7 +140,7 @@ export const MainPage =()=>{
       </ResponsivDiv>   
       </ImgBanner>
       <RightBarFilter prop={"-350px"}></RightBarFilter>      
-      <ResponsivDiv bgimage={PageBg}>
+      <ResponsivDiv bgimage={"/pagebg.jpg"}>
         <DivFilter>
           <FilterSpan></FilterSpan>
         </DivFilter>
@@ -148,7 +149,7 @@ export const MainPage =()=>{
             {pokemons?.map(item=>{
               return (
                 <GridContainer key={item.name}>
-                  <CardPokemon name={item.name} pokedata={false}/>
+                  <CardPokemon setTtypeFilters={setTtypeFilters} name={item.name} pokedata={false}/>
                 </GridContainer>
               )
             })}
@@ -164,7 +165,7 @@ export const MainPage =()=>{
         { !checkShowMoreBtn &&
           <div style={{textAlign:'center', margin: '30px 0'}}>
             <ShowMoreBtn onClick={CallPokemons}>
-                <DefaultIcon src={pokeball}>
+                <DefaultIcon src={"/pokeball.png"}>
 
                 </DefaultIcon>
                 <Explore>

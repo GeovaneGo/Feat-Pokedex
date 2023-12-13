@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { BtnBackToTop, DefaultIcon, DefaultLabel } from "./btnBackTop.styled";
-import pokeball from "../../pokeball.png";
 
 export const BackToTop =()=> {
     const [displayInfo, setdisplayInfo]=useState("none");
@@ -19,7 +18,7 @@ export const BackToTop =()=> {
 
     return (
         <BtnBackToTop display={displayInfo} onClick={FnBackToTop}>
-            <DefaultIcon src={pokeball}></DefaultIcon>
+            <DefaultIcon src={"/pokeball.png"}></DefaultIcon>
             <DefaultLabel>                
                 Go Up!
             </DefaultLabel>                

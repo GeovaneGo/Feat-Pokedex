@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PokeIcons, PokeIconsBg, TabPosition, TypeLabel } from "./tagFilter.styled";
 import BgFilter from "../../bgFilter.png"
 import Colors from "../usable-arrays/colors";
+import Capitalizer from "../capitalizer/capitalizer";
 
 export const TabFilter=({selectedType})=>{
     const [pokeTypes]= useState(selectedType);
