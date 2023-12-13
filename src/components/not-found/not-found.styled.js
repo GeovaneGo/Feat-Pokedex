@@ -4,19 +4,19 @@ export const Root = styled.div`
     padding: 10px;
 
     @media (min-width: 600px){        
-        padding: 10px 100px; 
+        padding: 10px 0; 
     }
 
     @media (min-width: 900px){        
-        padding: 10px 150px;
+        padding: 10px 0;
     }
 
     @media (min-width: 1270px){        
-        padding: 10px 200px;
+        padding: 10px 0;
     }
 
     @media (min-width: 1520px){         
-        padding: 10px 250px;  
+        padding: 10px 0;  
 }
 `
 export const MainDiv = styled.div`
@@ -27,6 +27,7 @@ export const MainDiv = styled.div`
     border-radius: 10px;
     border-color: gray;
     border-style: solid;
+    background-color: white;
     
     @media (min-width: 600px){    
     grid-template-columns: 1fr;    

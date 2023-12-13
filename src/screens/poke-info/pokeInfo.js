@@ -24,7 +24,6 @@ import {
     GridContainer,
     BannerName,
     } from "./pokeInfo.styled";
-import pokeballBg from "../../pokeball.png"
 import Capitalizer from "../../components/capitalizer/capitalizer";
 import LeftZero from "../../components/left-zero/leftZero";
 import PokeType from "../../components/poke-type/pokeType";
@@ -32,9 +31,6 @@ import BackToTop from "../../components/buttonn-back-top/btnBackTop";
 import CardPokemon from "../../components/card-pokemon/cardPokemon";
 import BackToHome from "../../components/back-home/backToHome";
 import Skeleton from "../../components/skeleton-loading/skeletonLoading";
-import NameBg from "../../nameBackground.png";
-import ArrowNavR from "../../arrowNavR.png";
-import ArrowNavL from "../../arrowNavL.png";
 import GetWeakness from "../../components/get-weakness/getWeakness";
 
 export const PokeInfoPage =()=>{  
@@ -149,12 +145,12 @@ export const PokeInfoPage =()=>{
     })
 
     return (
-        <Root>           
+        <Root  pagebg={"/pagebg.jpg"}>           
             <MainHeader>
                 <BackToHome/>                
             </MainHeader> 
             <PokeInfo height={"80px"}>    
-                <BannerName  src={NameBg}>
+                <BannerName  src={"/nameBackground.png"}>
                     <DefaultLabel textcolor={'#529bad'}>
                         #<LeftZero num={pokeNumber}/> 
                     </DefaultLabel>
@@ -163,27 +159,28 @@ export const PokeInfoPage =()=>{
                     </DefaultLabel> 
                 </BannerName>             
             </PokeInfo>
+            
             <PokeInfo margintop={"-7px"} height={"38px"}>                
                 <PokeNav>                    
                     {  hasPrev &&
                         <div>                  
                             <NextPrev  toplradius={"105px 50px"} toprradius={"10px 10px"} bottomrradius={"10px 10px"} bottomlradius={"105px 50px"} position={"left"} setfloat="left" href={"/pokemon/"+ pokePrevName}>
-                                {`<`} #<LeftZero num={pokeNumber}/>  <Capitalizer str={pokePrevName}/>
+                                {`<`} #<LeftZero num={pokeNumber -1}/>  <Capitalizer str={pokePrevName}/>
                             </NextPrev>
                         </div>
                     }  
                     { hasNext  &&
                         <div>       
                             <NextPrev toprradius={"105px 50px"} bottomrradius={"105px 50px"} position={"right"} setfloat="right"  href={"/pokemon/"+ pokeNextName}>
-                                <Capitalizer str={pokeNextName}/> #<LeftZero num={pokeNumber}/>  {`>`}
+                                <Capitalizer str={pokeNextName}/> #<LeftZero num={pokeNumber + 1}/>  {`>`}
                             </NextPrev>  
                         </div>
                     }
                 </PokeNav> 
             </PokeInfo>
             <PokeContainer>
-                <ResponsivDiv>
-                    <PokeInfoContainer bgimage={pokeballBg}>
+                <ResponsivDiv bgimage={`url(${"/bgPokeInfo.png"})`}>
+                    <PokeInfoContainer bgimage={"/pokeball.png"}>
                         <DefaultImg src={pokeImage}>
                         </DefaultImg>
                     </PokeInfoContainer> 
@@ -194,7 +191,7 @@ export const PokeInfoPage =()=>{
                     </div>
                     <PokeType pokeInfo={pokeInfo}></PokeType>
                 </ResponsivDiv>
-                <ResponsivDiv>
+                <ResponsivDiv bgimage={`url(${"/bgweakness.png"})`}>
                     <PokeStatusContainer>
                         <StatusLabels>
                             Stats
@@ -219,9 +216,9 @@ export const PokeInfoPage =()=>{
                     </div>
                     <GetWeakness pokeInfo={pokeInfo}></GetWeakness>       
                 </ResponsivDiv>
-            </PokeContainer>           
+            </PokeContainer> 
             <EvoContainer> 
-                <DefaultLabel style={{position: 'absolute', float: 'left', marginTop: '7px'}}>
+                <DefaultLabel style={{position: 'absolute', float: 'left', marginTop: '7px', color: "white"}}>
                     Evolutions
                 </DefaultLabel>
                 {(evolutions.length > 0) ?
@@ -239,7 +236,7 @@ export const PokeInfoPage =()=>{
                         <Skeleton props={3}></Skeleton>  
                     </EvoInfos>  
                 }      
-            </EvoContainer>
+            </EvoContainer>            
             <BackToTop></BackToTop>
             <PokeInfo height={"200px"}/>  
             <Mainfooter>                

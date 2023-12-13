@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
-export const PokeIconsBg = styled.a`
+export const PokeIconsBg = styled.div`
     font-size: 14px;
     border-radius: 5px;
-    width: ${props=>props.iconbgwidth}; ;
+    width: 100px;
     padding: 10px;
     display: flex;
     align-items: center;
     margin: 4px;
     background-color: ${props=>props.bgcolor};
-    height:  ${props=>props.iconbgheight}; //24
-    box-shadow: 0px 0px 3px #b3ffff;
+    height:  24px;
     cursor: pointer;
     &:hover {
         animation: tilt 200ms;
@@ -38,12 +37,12 @@ export const TypesGrid = styled.div`
 export const TypeLabel = styled.label`
     text-align: center;
     margin: 4px;
-    font-size: ${props=>props.fontSize};
+    font-size: 16;
     cursor: pointer;
 `;
 
 export const PokeIcons = styled.img`
-    width: ${props=>props.iconwidth}; //15
+    width: 15px; //15
     margin: 4px;
     margin-left:6px
 `;

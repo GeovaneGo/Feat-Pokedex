@@ -2,18 +2,22 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
     display: grid;
-    background-color: #f9f9f9;
     justify-content: center;
     margin: 8px;
     width: 90%;
     height: 335px;
     min-width: 220px;
-    box-shadow: 0px 0px 11px #e6e6e6;
+    box-shadow: 0px 0px 2px #e6e6e6;
     border-radius: 10px ;
     position: relative;
+    background-image: url(${props=>props.bgimage});
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;    
+    padding: 10px 0;
     cursor: default;
     &:hover {
-        
+        box-shadow: 0px 0px 3px #94e6fa;
         animation: tilt 200ms;
         @keyframes tilt {
             0% {
@@ -30,10 +34,11 @@ export const CardContainer = styled.div`
 `;
 
 export const PokeName = styled.strong`
-    color: #368389;
+    color: white;
     font-size: 20px;
     justify-self: center;
     height: 24px;
+    margin-bottom: 15px;
 `;
 
 export const PoketypesContainer = styled.a`

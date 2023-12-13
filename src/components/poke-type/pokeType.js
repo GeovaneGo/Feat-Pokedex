@@ -3,7 +3,7 @@ import Capitalizer from "../capitalizer/capitalizer"
 import { PokeIcons, PokeIconsBg, TypeLabel, TypesGrid } from "./pokeType.styled";
 import { Colors } from "../usable-arrays/colors.js";
 
-export const PokeType =({pokeInfo})=>{
+export const PokeType =({pokeInfo, setTtypeFilters})=>{
     const pokeType = pokeInfo.pokeType;
     const iconWidth = pokeInfo.iconWidth;
     const pokeIconHeigth = pokeInfo.pokeIconHeigth;
@@ -17,7 +17,7 @@ export const PokeType =({pokeInfo})=>{
                 return (
                     <div key={pokeMon.type.name}>
                         <Tooltip title={`Filter by ${pokeMon.type.name}`}>
-                            <PokeIconsBg  iconbgheight={pokeIconHeigth} iconbgwidth={pokeIconWidth} bgcolor={typeColor[pokeMon.type.name]}>                            
+                            <PokeIconsBg onClick={()=> setTtypeFilters([...pokeMon.type.name])} iconbgheight={pokeIconHeigth} iconbgwidth={pokeIconWidth} bgcolor={typeColor[pokeMon.type.name]}>                            
                                 <PokeIcons iconwidth={iconWidth} src={require(`../../typeIcons/${pokeMon.type.name}.svg`)}></PokeIcons>
                                 <TypeLabel fontSize={fontZise}>
                                     <Capitalizer str={pokeMon.type.name}/>

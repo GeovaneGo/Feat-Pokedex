@@ -1,4 +1,3 @@
-import NotFoundImage from "../../pokeNotFound.png"
 import { DefaultImg, DivContent, MainDiv, Root } from "./not-found.styled";
 
 export const PokeNotFound =()=>{
@@ -6,7 +5,7 @@ export const PokeNotFound =()=>{
       <Root>
         <MainDiv>
           <DivContent>
-            <DefaultImg src={NotFoundImage}></DefaultImg> 
+            <DefaultImg src={"/pokeNotFound.png"}></DefaultImg> 
           </DivContent> 
 
           <DivContent>

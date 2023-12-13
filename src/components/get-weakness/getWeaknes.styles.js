@@ -10,13 +10,37 @@ export const PokeIconsBg = styled.div`
     margin: 4px;
     background-color: ${props=>props.bgcolor};
     height:  ${props=>props.iconbgheight}; //24
+    margin: auto;
+    box-shadow: 0px 0px 5px #ff0000;
 `;
 
 export const TypesGrid = styled.div`
-    display: flex;
+    display: grid;
     justify-content: center;
     min-width: 210px;
-    margin-top: 25px;
+    margin-top: 25px;      
+    padding: 0 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    @media (min-width: 600px){        
+        padding: 0 50px;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+    }
+
+    @media (min-width: 900px){        
+        padding: 0 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (min-width: 1270px){        
+        padding: 0 50px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @media (min-width: 1520px){      
+        padding: 0 90px;     
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 `;
 
 export const TypeLabel = styled.label`
