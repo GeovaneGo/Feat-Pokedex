@@ -1,10 +1,10 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { Routes, Route, HashRouter} from "react-router-dom";
 import MainPage from "./screens/main-page/mainPage";
 import PokeInfoPage from "./screens/poke-info/pokeInfo";
 
 export const Router =()=>{
     return(
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route
                     path="/"
@@ -17,7 +17,7 @@ export const Router =()=>{
                     >                    
                 </Route>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
