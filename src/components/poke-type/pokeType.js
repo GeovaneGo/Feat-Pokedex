@@ -1,7 +1,7 @@
 import { Tooltip } from "@mui/material";
 import Capitalizer from "../capitalizer/capitalizer"
 import { PokeIcons, PokeIconsBg, TypeLabel, TypesGrid } from "./pokeType.styled";
-import { Colors } from "../usable-arrays/colors.js";
+import { Colors } from "../utils/colors.js";
 
 export const PokeType =({pokeInfo, setTtypeFilters})=>{
     const pokeType = pokeInfo.pokeType;

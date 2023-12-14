@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import api from "../../api/api";
 import { PokeIcons, PokeIconsBg, TypeLabel, TypesGrid } from "./getWeaknes.styles";
 import Capitalizer from "../capitalizer/capitalizer";
-import Colors from "../usable-arrays/colors";
+import Colors from "../utils/colors";
 
 const GetWeakness =({pokeInfo})=>{
     const [weakness, setWeakness]=useState(null);
