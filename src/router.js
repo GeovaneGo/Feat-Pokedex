@@ -13,7 +13,7 @@ export const Router =()=>{
                 </Route>
                 <Route
                     path="/pokemon/:pokeId"
-                    Component={PokeInfoPage}
+                    element={<PokeInfoPage/>}
                     >                    
                 </Route>
             </Routes>
